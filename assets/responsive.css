@@ -1,0 +1,384 @@
+/* ==========================================================================
+   AURELIA OCEANIC VOYAGES — RESPONSIVE STYLESHEET
+   Tested & optimized across 1920px, 1440px, 1024px, 768px, 480px, 360px
+   ========================================================================== */
+
+/* Large Desktop (1440px - 1920px+) */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1380px;
+  }
+}
+
+/* Standard Desktop / Small Laptop (1024px to 1439px) */
+@media (max-width: 1280px) {
+  .search-form-grid {
+    grid-template-columns: repeat(2, 1fr) repeat(2, 1fr);
+  }
+  
+  .search-form-grid .btn {
+    grid-column: span 2;
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+  .footer-newsletter {
+    grid-column: span 4;
+    margin-top: 20px;
+  }
+}
+
+/* Tablet Landscape & Portrait (769px to 1023px) */
+@media (max-width: 1023px) {
+  :root {
+    --header-height: 80px;
+  }
+
+  .main-nav,
+  .header-actions {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature-split.reverse {
+    direction: ltr;
+  }
+
+  .feature-split-img img {
+    height: 380px;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .search-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .search-form-grid .btn {
+    grid-column: span 2;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .footer-brand,
+  .footer-newsletter {
+    grid-column: span 2;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .timeline-track::before {
+    left: 20px;
+  }
+
+  .timeline-step {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 60px;
+    padding-right: 15px;
+    text-align: left !important;
+  }
+
+  .timeline-step:nth-child(odd) .timeline-node,
+  .timeline-step:nth-child(even) .timeline-node {
+    left: 10px;
+    right: auto;
+  }
+}
+
+/* Mobile Devices (481px to 768px) */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section {
+    padding: 55px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .search-panel {
+    padding: 20px;
+  }
+
+  .search-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-form-grid .btn {
+    grid-column: span 1;
+    width: 100%;
+  }
+
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-tile {
+    height: 320px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header-container .btn {
+    width: auto;
+  }
+
+  .toast-container {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .toast {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* ==========================================================================
+     Footer Center Alignment in Mobile View
+     ========================================================================== */
+  .site-footer {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .footer-brand .brand-logo {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-brand p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 380px;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-col-title {
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .footer-col-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-link {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .footer-newsletter {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-newsletter p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 380px;
+  }
+
+  .footer-newsletter-form {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-newsletter-form input {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-newsletter-form .btn {
+    width: 100%;
+  }
+
+  .footer-disclaimer-card {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 480px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-social-links {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+
+/* Small Smartphones (360px to 480px) */
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 1.15rem;
+  }
+
+  .brand-sub {
+    font-size: 0.55rem;
+  }
+
+  .brand-logo-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .section {
+    padding: 45px 0;
+  }
+
+  .cruise-card-img {
+    height: 200px;
+  }
+
+  .cruise-card-body {
+    padding: 18px;
+  }
+
+  .cruise-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .cruise-card-footer .btn {
+    width: 100%;
+  }
+
+  .feature-split-img img {
+    height: 260px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand,
+  .footer-newsletter {
+    grid-column: span 1;
+  }
+}
+
+/* Ultra Small Screens (Under 360px) */
+@media (max-width: 360px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .btn-lg {
+    padding: 14px 20px;
+    font-size: 0.88rem;
+  }
+}
+
+/* Reduced Motion Preference Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+}
