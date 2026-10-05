@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Drifting into Uncharted Waters | Aurelia Oceanic Voyages</title>
+  <meta name="description" content="The navigational course you attempted to chart could not be found. Return to safe harbor with Aurelia Oceanic Voyages.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2308162B' stroke='%23C5A880' stroke-width='4'/><path d='M30 65 Q50 30 70 65 Q50 55 30 65' fill='%23C5A880'/></svg>">
+
+  <!-- Font Awesome & Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body class="section-dark" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
+
+  <!-- 404 Main Experience (Header and Destination Links removed as requested) -->
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 60px 20px; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: url('assets/404-ocean.webp') center/cover no-repeat; filter: brightness(0.25); z-index: 1;"></div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle, transparent 20%, rgba(8, 22, 43, 0.95) 90%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 3; text-align: center; max-width: 800px;">
+      <!-- Elegant Centered Brand Mark -->
+      <a href="index.html" class="brand-logo" style="justify-content: center; margin-bottom: 28px; text-decoration: none;" aria-label="Stackly Home">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img" style="height: 44px; width: auto;">
+      </a>
+
+      <!-- Large Nautical 404 Element -->
+      <div style="position: relative; display: inline-block; margin-bottom: 24px;">
+        <div style="font-family: var(--font-serif); font-size: clamp(6rem, 15vw, 11rem); font-weight: 700; color: var(--color-accent-gold); line-height: 1; letter-spacing: 0.05em; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          404
+        </div>
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; border: 1.5px dashed var(--border-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0.4; pointer-events: none;">
+          <i class="fa-solid fa-compass" style="font-size: 3.5rem; color: #FFFFFF;"></i>
+        </div>
+      </div>
+
+      <span class="eyebrow text-gold" style="margin-bottom: 12px;"><i class="fa-solid fa-triangle-exclamation"></i> Course Correction Required</span>
+      <h1 style="color: #FFFFFF; font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 18px;">
+        You Have Drifted Into Uncharted Waters
+      </h1>
+      <p style="color: #BAC7D5; font-size: 1.15rem; line-height: 1.8; margin-bottom: 36px; max-width: 640px; margin-left: auto; margin-right: auto;">
+        The navigational coordinates you attempted to plot do not correspond to any known port of call. Perhaps the tide shifted or this voyage was recently re-routed.
+      </p>
+
+      <!-- Recovery Actions -->
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <!-- Back to Home -->
+        <a href="index.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-anchor"></i> Return to Safe Harbor
+        </a>
+        <!-- Go Back using history.back() -->
+        <button type="button" onclick="history.back();" class="btn btn-outline-white btn-lg">
+          <i class="fa-solid fa-arrow-rotate-left"></i> Chart Previous Course
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 24px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); text-align: center; font-size: 0.82rem; color: #64748B;">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div>&copy; 2026 stackly all rights reserved.</div>
+      <div>Need immediate voyage assistance? Call Concierge: <strong>+1 (800) 555-0199</strong></div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

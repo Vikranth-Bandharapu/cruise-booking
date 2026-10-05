@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Oceanic Voyages | Luxury International Cruises & Ocean Journeys</title>
+  <meta name="description" content="Embark on transcendent luxury ocean voyages with Aurelia Oceanic Voyages. Discover Michelin-starred dining, all-suite accommodations, and bespoke itineraries worldwide.">
+  <meta name="keywords" content="luxury cruises, ocean voyages, private suites, Mediterranean cruise, Norwegian Fjords, luxury travel, all-inclusive cruises">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2308162B' stroke='%23C5A880' stroke-width='4'/><path d='M30 65 Q50 30 70 65 Q50 55 30 65' fill='%23C5A880'/></svg>">
+
+  <!-- Font Awesome Icons & AOS Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Auth & CTAs -->
+      <div class="header-actions">
+        <a href="login.html" class="header-auth-link">Sign In</a>
+        <a href="signup.html" class="header-auth-link signup">Sign Up</a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Slide-out Navigation Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </div>
+      <button class="drawer-close-btn" aria-label="Close Mobile Menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link active"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="about.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="blog.html" class="mobile-nav-link"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+    </ul>
+
+    <div class="mobile-drawer-actions">
+      <a href="login.html" class="btn btn-outline-white btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Create Account</a>
+      <a href="404.html" class="btn btn-azure btn-sm">Explore Voyages</a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         SECTION 1: CINEMATIC HERO
+         ========================================================================== -->
+    <section class="hero-section section-dark" style="position: relative; min-height: 94vh; display: flex; align-items: center; padding-top: 140px; padding-bottom: 90px; overflow: hidden;" aria-label="Cinematic Hero">
+      <div class="hero-parallax-bg" style="position: absolute; inset: -10% 0; background: url('assets/hero-cruise.webp') center/cover no-repeat; filter: brightness(0.65); z-index: 1;"></div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 22, 43, 0.4) 0%, rgba(8, 22, 43, 0.9) 100%); z-index: 2;"></div>
+
+      <div class="container" style="position: relative; z-index: 3;">
+        <div style="max-width: 820px;">
+          <div class="eyebrow hero-badge"><i class="fa-solid fa-anchor"></i> Ultra-Luxury Ocean Voyages</div>
+          <h1 class="hero-title text-white" style="margin-bottom: 24px;">The Art of Oceanic Splendor</h1>
+          <p class="hero-desc text-light" style="font-size: 1.25rem; line-height: 1.8; margin-bottom: 38px;">
+            Traverse the world's most evocative seas aboard bespoke boutique mega-yachts. From sun-drenched Mediterranean archipelagos to ethereal glacial fjords, immerse yourself in uncompromising luxury and intuitive seafaring hospitality.
+          </p>
+          <div class="hero-actions" style="display: flex; gap: 18px; flex-wrap: wrap;">
+            <a href="404.html" class="btn btn-primary btn-lg">Explore Voyages <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="404.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-play"></i> Watch Experience Film</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: CRUISE SEARCH EXPERIENCE
+         ========================================================================== -->
+    <section class="section" style="padding-top: 0; margin-top: -55px; position: relative; z-index: 30;" aria-label="Cruise Search Experience">
+      <div class="container">
+        <div class="search-panel" data-aos="fade-up">
+          <form class="search-form-grid" action="404.html" method="get">
+            <div class="search-field">
+              <label class="search-label" for="searchDestination"><i class="fa-solid fa-location-dot"></i> Destination</label>
+              <select id="searchDestination" class="search-select">
+                <option value="all">All Destinations</option>
+                <option value="mediterranean">Mediterranean & Aegean</option>
+                <option value="norwegian-fjords">Norwegian Fjords</option>
+                <option value="caribbean">Caribbean & Antilles</option>
+                <option value="alaska">Alaska & Arctic Glaciers</option>
+                <option value="asia">Southeast Asia & Japan</option>
+                <option value="indian-ocean">Indian Ocean & Seychelles</option>
+              </select>
+            </div>
+
+            <div class="search-field">
+              <label class="search-label" for="searchDate"><i class="fa-regular fa-calendar-days"></i> Departure</label>
+              <input type="date" id="searchDate" class="search-input" value="2026-06-15">
+            </div>
+
+            <div class="search-field">
+              <label class="search-label" for="searchDuration"><i class="fa-solid fa-clock"></i> Duration</label>
+              <select id="searchDuration" class="search-select">
+                <option value="all">Any Duration</option>
+                <option value="short">5 – 7 Nights</option>
+                <option value="medium">8 – 14 Nights</option>
+                <option value="long">15 – 21 Nights</option>
+                <option value="grand">Grand World Voyage (30+)</option>
+              </select>
+            </div>
+
+            <div class="search-field">
+              <label class="search-label" for="searchGuests"><i class="fa-solid fa-user-group"></i> Guests</label>
+              <select id="searchGuests" class="search-select">
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4+ Guests (Suite Connect)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="height: 48px;">
+              <i class="fa-solid fa-magnifying-glass"></i> Find Your Cruise
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: BRAND INTRODUCTION & PHILOSOPHY
+         ========================================================================== -->
+    <section class="section" aria-label="Brand Introduction">
+      <div class="container">
+        <div class="feature-split">
+          <div data-aos="fade-right">
+            <span class="eyebrow">Our Seafaring Philosophy</span>
+            <h2>Intimate Elegance on the Open Sea</h2>
+            <p style="margin-bottom: 20px;">
+              Aurelia Oceanic Voyages was born out of an unwavering passion for classic maritime tradition combined with modern, environmentally conscientious innovation. We believe the true luxury of sea travel lies in intimacy, spaciousness, and unhurried discovery.
+            </p>
+            <p style="margin-bottom: 30px;">
+              With an extraordinary 1:1 guest-to-crew ratio, all-suite oceanfront accommodations, and itineraries carefully curated to drop anchor in secluded coves where mega-ships cannot enter, our journeys are crafted for the discerning traveler.
+            </p>
+            <div style="display: flex; gap: 36px; margin-bottom: 30px;">
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--color-primary); font-weight: 700;" data-counter="4" data-suffix=" Vessels">4</div>
+                <div style="font-size: 0.82rem; color: var(--color-text-muted); text-transform: uppercase;">Flagship Boutique Fleet</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--color-primary); font-weight: 700;" data-counter="140" data-suffix="+">140+</div>
+                <div style="font-size: 0.82rem; color: var(--color-text-muted); text-transform: uppercase;">Secluded Ports of Call</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--color-primary); font-weight: 700;" data-counter="99.4" data-suffix="%">99.4%</div>
+                <div style="font-size: 0.82rem; color: var(--color-text-muted); text-transform: uppercase;">Guest Satisfaction</div>
+              </div>
+            </div>
+            <a href="404.html" class="btn btn-outline-gold">Discover Our Heritage <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-left">
+            <div class="feature-frame-accent"></div>
+            <img src="assets/ship-exterior-1.webp" alt="Aurelia mega-yacht cruising along coastal cliffs" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: FEATURED CRUISES & ITINERARIES
+         ========================================================================== -->
+    <section class="section section-sand" aria-label="Featured Cruises">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Signature Itineraries</span>
+          <h2>Featured Voyages & Grand Expeditions</h2>
+          <p>Handcrafted journeys designed to immerse you in the culture, wildlife, and natural splendor of Earth's most breathtaking waterways.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Card 1 -->
+          <article class="cruise-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="cruise-card-img">
+              <img src="assets/destination-mediterranean.webp" alt="Santorini coastline and Mediterranean voyage" loading="lazy">
+              <div class="cruise-badge">Popular Itinerary</div>
+            </div>
+            <div class="cruise-card-body">
+              <div class="cruise-card-meta">
+                <span><i class="fa-solid fa-moon"></i> 10 Nights</span>
+                <span><i class="fa-solid fa-anchor"></i> Athens to Nice</span>
+              </div>
+              <h3 class="cruise-card-title">Classical Mediterranean & Côte d'Azur</h3>
+              <p class="cruise-card-desc">Sail through the azure waters of the Aegean, docking at secluded Cycladic anchorages before cruising past Monaco and Saint-Tropez.</p>
+              <div class="cruise-card-footer">
+                <div class="cruise-price-block">
+                  <span class="cruise-price-label">Fares From</span>
+                  <span class="cruise-price-val">$5,850 <span>/ guest</span></span>
+                </div>
+                <a href="404.html" class="btn btn-primary btn-sm">Explore Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="cruise-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="cruise-card-img">
+              <img src="assets/destination-fjords.webp" alt="Dramatic cliffs and cascades of Norwegian Fjords" loading="lazy">
+              <div class="cruise-badge">Expedition Grade</div>
+            </div>
+            <div class="cruise-card-body">
+              <div class="cruise-card-meta">
+                <span><i class="fa-solid fa-moon"></i> 12 Nights</span>
+                <span><i class="fa-solid fa-anchor"></i> Bergen to Tromsø</span>
+              </div>
+              <h3 class="cruise-card-title">Midnight Sun & Norwegian Fjords</h3>
+              <p class="cruise-card-desc">Navigate majestic deep-water fjords, witness midnight daylight over cascading waterfalls, and marvel at UNESCO-protected heritage cliffs.</p>
+              <div class="cruise-card-footer">
+                <div class="cruise-price-block">
+                  <span class="cruise-price-label">Fares From</span>
+                  <span class="cruise-price-val">$7,200 <span>/ guest</span></span>
+                </div>
+                <a href="404.html" class="btn btn-primary btn-sm">Explore Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="cruise-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="cruise-card-img">
+              <img src="assets/destination-caribbean.webp" alt="Pristine turquoise water in the Caribbean" loading="lazy">
+              <div class="cruise-badge">Tropical Escape</div>
+            </div>
+            <div class="cruise-card-body">
+              <div class="cruise-card-meta">
+                <span><i class="fa-solid fa-moon"></i> 8 Nights</span>
+                <span><i class="fa-solid fa-anchor"></i> Barbados Roundtrip</span>
+              </div>
+              <h3 class="cruise-card-title">Windward Islands & Secluded Cays</h3>
+              <p class="cruise-card-desc">Escape to private Caribbean anchorages, pristine coral reefs, and exclusive private beach dinners under canopy palm fronds.</p>
+              <div class="cruise-card-footer">
+                <div class="cruise-price-block">
+                  <span class="cruise-price-label">Fares From</span>
+                  <span class="cruise-price-val">$4,900 <span>/ guest</span></span>
+                </div>
+                <a href="404.html" class="btn btn-primary btn-sm">Explore Details</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;" data-aos="fade-up">
+          <a href="404.html" class="btn btn-outline-gold btn-lg">View All 2026 Voyages <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: POPULAR DESTINATIONS
+         ========================================================================== -->
+    <section class="section" aria-label="Popular Destinations">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Worldwide Horizons</span>
+          <h2>Iconic Ports & Uncharted Coasts</h2>
+          <p>From venerable Mediterranean harbors steeped in antiquity to remote polar landscapes where silence reigns supreme.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="destination-tile" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/destination-mediterranean.webp" alt="Greek Cyclades and Mediterranean cliffs" loading="lazy">
+            <div class="destination-tile-overlay">
+              <span class="eyebrow text-gold" style="margin-bottom: 4px;">Southern Europe</span>
+              <h3>The Mediterranean</h3>
+              <p>Stroll ancient Venetian alleyways and olive-crowned hilltops.</p>
+              <a href="404.html" class="btn btn-outline-white btn-sm" style="width: fit-content;">Discover Ports</a>
+            </div>
+          </div>
+
+          <div class="destination-tile" data-aos="zoom-in" data-aos-delay="200">
+            <img src="assets/destination-alaska.webp" alt="Majestic blue glaciers and snow-capped peaks in Alaska" loading="lazy">
+            <div class="destination-tile-overlay">
+              <span class="eyebrow text-gold" style="margin-bottom: 4px;">Pacific Northwest</span>
+              <h3>Alaska & Glaciers</h3>
+              <p>Watch breaching humpbacks amidst thundering tidewater glaciers.</p>
+              <a href="404.html" class="btn btn-outline-white btn-sm" style="width: fit-content;">Discover Ports</a>
+            </div>
+          </div>
+
+          <div class="destination-tile" data-aos="zoom-in" data-aos-delay="300">
+            <img src="assets/destination-fjords.webp" alt="Pristine mountain reflections in Norwegian Fjords" loading="lazy">
+            <div class="destination-tile-overlay">
+              <span class="eyebrow text-gold" style="margin-bottom: 4px;">Scandinavia</span>
+              <h3>Norwegian Fjords</h3>
+              <p>Verdant mountains plunging steeply into crystal-clear fjords.</p>
+              <a href="404.html" class="btn btn-outline-white btn-sm" style="width: fit-content;">Discover Ports</a>
+            </div>
+          </div>
+
+          <div class="destination-tile" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/destination-caribbean.webp" alt="Caribbean coral reef and azure lagoon" loading="lazy">
+            <div class="destination-tile-overlay">
+              <span class="eyebrow text-gold" style="margin-bottom: 4px;">Tropical Americas</span>
+              <h3>Caribbean Archipelagos</h3>
+              <p>Warm trade winds, secluded anchorages, and private beach clubs.</p>
+              <a href="404.html" class="btn btn-outline-white btn-sm" style="width: fit-content;">Discover Ports</a>
+            </div>
+          </div>
+
+          <div class="destination-tile" data-aos="zoom-in" data-aos-delay="200">
+            <img src="assets/destination-asia.webp" alt="Historic pagoda in Japan overlooking serene sea" loading="lazy">
+            <div class="destination-tile-overlay">
+              <span class="eyebrow text-gold" style="margin-bottom: 4px;">East Asia</span>
+              <h3>Japan & Southeast Asia</h3>
+              <p>Ancient temples, cherry blossoms, and emerald limestone karst towers.</p>
+              <a href="404.html" class="btn btn-outline-white btn-sm" style="width: fit-content;">Discover Ports</a>
+            </div>
+          </div>
+
+          <div class="destination-tile" data-aos="zoom-in" data-aos-delay="300">
+            <img src="assets/destination-indianocean.webp" alt="Pristine turquoise lagoon in Indian Ocean" loading="lazy">
+            <div class="destination-tile-overlay">
+              <span class="eyebrow text-gold" style="margin-bottom: 4px;">Equatorial Isles</span>
+              <h3>Indian Ocean & Seychelles</h3>
+              <p>Granite boulders, coral atolls, and endemic island wildlife sanctuaries.</p>
+              <a href="404.html" class="btn btn-outline-white btn-sm" style="width: fit-content;">Discover Ports</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: THE CRUISE EXPERIENCE
+         ========================================================================== -->
+    <section class="section section-dark" aria-label="Cruise Experience">
+      <div class="container">
+        <div class="feature-split reverse">
+          <div data-aos="fade-left">
+            <span class="eyebrow">The Onboard Symphony</span>
+            <h2>Immersive Living Beyond Boundaries</h2>
+            <p style="margin-bottom: 20px;">
+              Every morning reveals a fresh horizon framed by your private veranda. Sip single-origin espresso prepared by your dedicated stateroom attendant, savor bespoke spa treatments harnessing marine minerals, and celebrate sunset with live classical quartets on the teak aft deck.
+            </p>
+            <p style="margin-bottom: 30px;">
+              Our boutique yacht design emphasizes generous outdoor promenade space, panoramic oceanfront lounges, and an atmosphere of serene sophistication where every guest feels unhurried and truly at home.
+            </p>
+            <a href="404.html" class="btn btn-primary">Discover The Experience <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-right">
+            <div class="feature-frame-accent"></div>
+            <img src="assets/experience-sunset.webp" alt="Guests viewing golden sunset from yacht promenade deck" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 7: WHY CHOOSE US (TRUST PILLARS)
+         ========================================================================== -->
+    <section class="section" aria-label="Why Choose Us">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">The Aurelia Distinction</span>
+          <h2>Why Discerning Voyagers Choose Our Flagships</h2>
+          <p>Uncompromising standards, mindful stewardship, and an intuitive culture of European white-glove hospitality.</p>
+        </div>
+
+        <div class="grid-3">
+          <div style="background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 32px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" data-aos="fade-up" data-aos-delay="100">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(197, 168, 128, 0.15); display: flex; align-items: center; justify-content: center; color: var(--color-accent-gold); font-size: 1.4rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">1:1 Crew Ratio</h3>
+            <p style="font-size: 0.95rem; color: var(--color-text-muted);">
+              Intuitive service that anticipates your preferences without intrusion. Your butler and sommelier quickly learn your personal tastes.
+            </p>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 32px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" data-aos="fade-up" data-aos-delay="200">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(197, 168, 128, 0.15); display: flex; align-items: center; justify-content: center; color: var(--color-accent-gold); font-size: 1.4rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">All-Inclusive Luxury</h3>
+            <p style="font-size: 0.95rem; color: var(--color-text-muted);">
+              Complimentary fine wines, premium spirits, specialty dining, high-speed Starlink Wi-Fi, port gratuities, and private shore transfers.
+            </p>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 32px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" data-aos="fade-up" data-aos-delay="300">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(197, 168, 128, 0.15); display: flex; align-items: center; justify-content: center; color: var(--color-accent-gold); font-size: 1.4rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">Eco-Hybrid Propulsion</h3>
+            <p style="font-size: 0.95rem; color: var(--color-text-muted);">
+              State-of-the-art hybrid-electric propulsion systems, advanced wastewater recycling, and zero single-use plastics protecting vulnerable marine biomes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 8: CRUISE JOURNEY TIMELINE
+         ========================================================================== -->
+    <section class="section section-sand" aria-label="Cruise Journey Timeline">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">The Voyage Flow</span>
+          <h2>Your Journey from Embarkation to Safe Harbor</h2>
+          <p>Experience an uninterrupted arc of discovery and relaxation, choreographed down to the finest detail.</p>
+        </div>
+
+        <div class="timeline-track">
+          <!-- Step 1 -->
+          <div class="timeline-step" data-aos="fade-right">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 4px;">Stage 01</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Embarkation & Welcome</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+                Private pier lounge, champagne toast, and personal escort to your suite where unpacked luggage awaits.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step" data-aos="fade-left">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 4px;">Stage 02</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Sea Day Serenity</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+                Unwind with morning ocean yoga, lectures by visiting geographers, and afternoon tea in the observation salon.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step" data-aos="fade-right">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 4px;">Stage 03</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Boutique Ports of Call</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+                Drop anchor in historic harbors. Small-group curated excursions unlock private vineyards and UNESCO heritage sites.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step" data-aos="fade-left">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 4px;">Stage 04</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Signature Captain's Gala</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+                Black-tie soiree with the Captain, multi-course degustation dining, and live symphony under the star-studded maritime sky.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-step" data-aos="fade-right">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 4px;">Stage 05</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Seamless Return</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+                Expedited private immigration clearance, chauffeur transfer to your onward flight, and timeless memories created.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 9: GUEST TESTIMONIALS (DEMONSTRATION ONLY)
+         ========================================================================== -->
+    <section class="section" aria-label="Guest Testimonials">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Guest Impressions</span>
+          <h2>Demonstration Voyager Reflections</h2>
+          <p><em>*The following fictional testimonials are provided solely to illustrate the Aurelia guest storytelling experience.</em></p>
+        </div>
+
+        <div class="grid-3">
+          <div class="cruise-card" style="padding: 32px;" data-aos="fade-up" data-aos-delay="100">
+            <div style="color: var(--color-accent-gold); font-size: 1.1rem; margin-bottom: 16px;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="font-style: italic; font-size: 1rem; color: var(--color-text-dark); margin-bottom: 24px; line-height: 1.7;">
+              "Sailing the Norwegian Fjords aboard Aurelia Sovereign was sublime. Waking up to sheer mountain faces right outside our balcony suite felt like stepping into an oil painting. The culinary precision was peerless."
+            </p>
+            <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-primary); color: var(--color-accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 700;">EV</div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem; color: var(--color-primary);">Lady Eleanor Vance</div>
+                <div style="font-size: 0.78rem; color: var(--color-text-muted);">Penthouse Veranda • Bergen to Tromsø</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cruise-card" style="padding: 32px;" data-aos="fade-up" data-aos-delay="200">
+            <div style="color: var(--color-accent-gold); font-size: 1.1rem; margin-bottom: 16px;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="font-style: italic; font-size: 1rem; color: var(--color-text-dark); margin-bottom: 24px; line-height: 1.7;">
+              "The 1:1 service ratio isn't merely a statistic; it defines the entire journey. Our butler anticipated every request before we even uttered it. Aurelia has completely redefined sea voyages for our family."
+            </p>
+            <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-primary); color: var(--color-accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 700;">MC</div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem; color: var(--color-primary);">Marcus & Clara Sterling</div>
+                <div style="font-size: 0.78rem; color: var(--color-text-muted);">Owner's Residence • Mediterranean Odyssey</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cruise-card" style="padding: 32px;" data-aos="fade-up" data-aos-delay="300">
+            <div style="color: var(--color-accent-gold); font-size: 1.1rem; margin-bottom: 16px;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="font-style: italic; font-size: 1rem; color: var(--color-text-dark); margin-bottom: 24px; line-height: 1.7;">
+              "As seasoned expedition travelers, we were blown away by the marine biology excursions and silent electric propulsion in pristine Alaskan sounds. Truly a masterpiece of contemporary maritime luxury."
+            </p>
+            <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-primary); color: var(--color-accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 700;">DR</div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem; color: var(--color-primary);">Dr. Julian Thorne</div>
+                <div style="font-size: 0.78rem; color: var(--color-text-muted);">Horizon Suite • Glacier Bay Expedition</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 10: FINAL CINEMATIC CTA
+         ========================================================================== -->
+    <section class="section section-dark" style="position: relative; overflow: hidden; padding: 120px 0;" aria-label="Final Call to Action">
+      <div style="position: absolute; inset: 0; background: url('assets/experience-sunset.webp') center/cover no-repeat; filter: brightness(0.4); z-index: 1;"></div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 22, 43, 0.7) 0%, rgba(8, 22, 43, 0.95) 100%); z-index: 2;"></div>
+
+      <div class="container" style="position: relative; z-index: 3; text-align: center;">
+        <span class="eyebrow" data-aos="fade-up">Commence Your Voyage</span>
+        <h2 style="color: #FFFFFF; font-size: clamp(2.4rem, 4.5vw, 3.8rem); margin-bottom: 24px; max-width: 820px; margin-left: auto; margin-right: auto;" data-aos="fade-up" data-aos-delay="100">
+          The World's Most Evocative Waters Await Your Arrival
+        </h2>
+        <p style="color: #BAC7D5; max-width: 650px; margin: 0 auto 38px; font-size: 1.2rem; line-height: 1.8;" data-aos="fade-up" data-aos-delay="200">
+          Step aboard Aurelia Oceanic Voyages and discover the boundless peace of true nautical luxury. Speak with our private voyage consultants today.
+        </p>
+        <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;" data-aos="fade-up" data-aos-delay="300">
+          <a href="404.html" class="btn btn-primary btn-lg">Plan Your Journey <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html" class="btn btn-outline-white btn-lg">Request 2026 Brochure</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+          </a>
+          <p>
+            Premier boutique luxury ocean line providing all-suite voyages, Michelin-inspired dining, and personalized global expeditions.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="blog.html" class="footer-link">Blog</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Client Access</h4>
+          <ul class="footer-links">
+            <li><a href="login.html" class="footer-link">Guest Portal Login</a></li>
+            <li><a href="signup.html" class="footer-link">Register Account</a></li>
+            <li><a href="login.html" class="footer-link">Operations Control</a></li>
+            <li><a href="404.html" class="footer-link">Charter Enquiries</a></li>
+            <li><a href="404.html" class="footer-link">Travel Advisor Desk</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="404.html" class="footer-link">Mediterranean & Aegean</a></li>
+            <li><a href="404.html" class="footer-link">Norwegian Fjords</a></li>
+            <li><a href="404.html" class="footer-link">Caribbean Archipelagos</a></li>
+            <li><a href="404.html" class="footer-link">Alaska & Arctic</a></li>
+            <li><a href="404.html" class="footer-link">Japan & South Pacific</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-col-title">The Aurelia Gazette</h4>
+          <p>Receive private seasonal announcements, maiden voyage releases, and travel essays.</p>
+          <form class="footer-newsletter-form" action="404.html" method="get" novalidate>
+            <input type="email" placeholder="Your email address..." aria-label="Newsletter Email Address" required>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer-card">
+        <p><strong>Demonstration Notice:</strong> Aurelia Oceanic Voyages is a fictional luxury cruise company created for design and technical demonstration purposes. All packages, pricing, ship names, itineraries, and guest reviews are illustrative demonstrations.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 stackly all rights reserved.</div>
+        <div class="footer-social-links">
+          <a href="404.html" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/animations.js"></script>
+</body>
+</html>

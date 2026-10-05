@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Aurelia Journal | Luxury Cruise & Ocean Travel Magazine</title>
+  <meta name="description" content="Immerse yourself in inspiring ocean travel stories, destination guides, packing advice, and culinary reflections from the writers and naturalists of Aurelia Oceanic Voyages.">
+  <meta name="keywords" content="cruise blog, luxury travel magazine, ocean travel essays, cruise packing tips, Mediterranean travel guide, polar expedition advice">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2308162B' stroke='%23C5A880' stroke-width='4'/><path d='M30 65 Q50 30 70 65 Q50 55 30 65' fill='%23C5A880'/></svg>">
+
+  <!-- Font Awesome & AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="header-auth-link">Sign In</a>
+        <a href="signup.html" class="header-auth-link signup">Sign Up</a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </div>
+      <button class="drawer-close-btn" aria-label="Close Mobile Menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="about.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="blog.html" class="mobile-nav-link active"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+    </ul>
+
+    <div class="mobile-drawer-actions">
+      <a href="login.html" class="btn btn-outline-white btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Create Account</a>
+      <a href="404.html" class="btn btn-azure btn-sm">Explore Voyages</a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         SECTION 1: TRAVEL JOURNAL HERO
+         ========================================================================== -->
+    <section class="section-dark" style="position: relative; padding: 160px 0 90px; overflow: hidden;" aria-label="Journal Hero">
+      <div style="position: absolute; inset: 0; background: url('assets/blog-fjords.webp') center/cover no-repeat; filter: brightness(0.35); z-index: 1;"></div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 22, 43, 0.6) 0%, rgba(8, 22, 43, 0.95) 100%); z-index: 2;"></div>
+
+      <div class="container" style="position: relative; z-index: 3; text-align: center;">
+        <span class="eyebrow hero-badge" data-aos="fade-up">The Aurelia Gazette</span>
+        <h1 class="hero-title text-white" style="margin-bottom: 20px;" data-aos="fade-up" data-aos-delay="100">
+          Chronicles of Wind, Water & Wanderlust
+        </h1>
+        <p class="hero-desc text-light" style="max-width: 740px; margin: 0 auto 34px; font-size: 1.2rem; line-height: 1.8;" data-aos="fade-up" data-aos-delay="200">
+          Curated dispatches, destination insights, culinary field notes, and maritime photography from our voyages across the seven seas.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;" data-aos="fade-up" data-aos-delay="300">
+          <a href="404.html" class="btn btn-primary">Read Lead Story <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="404.html" class="btn btn-outline-white">Subscribe to Gazette</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: FEATURED ARTICLE (LEAD STORY)
+         ========================================================================== -->
+    <section class="section" aria-label="Featured Article">
+      <div class="container">
+        <div class="cruise-card" style="display: grid; grid-template-columns: 1.2fr 1fr; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);" data-aos="fade-up">
+          <div style="height: 100%; min-height: 420px; overflow: hidden; position: relative;">
+            <img src="assets/blog-fjords.webp" alt="Norwegian mountain peaks and deep sea inlet" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            <div class="cruise-badge" style="top: 24px; left: 24px;">Lead Story • Scandinavia</div>
+          </div>
+          <div style="padding: 44px; display: flex; flex-direction: column; justify-content: center;">
+            <div class="cruise-card-meta" style="margin-bottom: 14px;">
+              <span><i class="fa-regular fa-clock"></i> 9 Min Read</span>
+              <span><i class="fa-regular fa-user"></i> By Capt. Henrik Lindqvist</span>
+            </div>
+            <h2 style="font-size: clamp(1.8rem, 2.8vw, 2.4rem); margin-bottom: 18px; line-height: 1.25;">
+              Echoes of the Ice Age: Sailing Through Norway's Deepest Fjords
+            </h2>
+            <p style="font-size: 1.05rem; color: var(--color-text-muted); margin-bottom: 28px; line-height: 1.7;">
+              As dawn filters through emerald mists along Geirangerfjord, the scale of Earth's ancient glacial forces becomes quiet and profound. Accompany our Senior Fleet Commodore on a reflective journey into Scandinavian maritime navigation and heritage fishing outposts.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <a href="404.html" class="btn btn-primary">Read Full Monograph <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size: 0.85rem; color: var(--color-text-muted);">Issue 48 • Summer 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: EDITOR'S IN-DEPTH MONOGRAPH
+         ========================================================================== -->
+    <section class="section section-sand" aria-label="Editor's Pick">
+      <div class="container">
+        <div class="feature-split">
+          <div data-aos="fade-right">
+            <span class="eyebrow">Editor's Choice Monograph</span>
+            <h2>Savoring the Ancient Sun: Wine & Olives of the Cyclades</h2>
+            <p style="margin-bottom: 18px;">
+              How dry volcanic ash soils on Santorini produce crisp, mineral-forward Assyrtiko wines that have captivated seafaring travelers since Bronze Age antiquity. Accompany Executive Chef Moreau as he scouts wild capers and dry-farmed island vineyards.
+            </p>
+            <p style="margin-bottom: 24px;">
+              Read our culinary exploration into the centuries-old Aegean techniques of sun-drying grapes and preserving sheep cheeses in olive wood vats.
+            </p>
+            <a href="404.html" class="btn btn-outline-gold">Read Full Monograph <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-left">
+            <img src="assets/blog-aegean.webp" alt="Santorini blue domes and Aegean sunset" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: FIRST-TIME VOYAGER GUIDE
+         ========================================================================== -->
+    <section class="section" aria-label="Cruise Travel Guides">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Practical Wisdom</span>
+          <h2>The First-Time Luxury Cruiser Handbook</h2>
+          <p>Navigating suite categories, all-inclusive inclusions, and shore expedition planning with poise.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="cruise-card" style="padding: 26px;" data-aos="fade-up" data-aos-delay="100">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 14px;"><i class="fa-solid fa-compass"></i></div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 10px;">Choosing Your Ideal Suite</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">Comparing mid-ship balance versus aft panorama terraces across different ocean routes.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Read Chapter</a>
+          </div>
+
+          <div class="cruise-card" style="padding: 26px;" data-aos="fade-up" data-aos-delay="200">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 14px;"><i class="fa-solid fa-bell-concierge"></i></div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 10px;">Maximizing Butler Service</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">Understanding the etiquette of garment pressing, in-suite dining requests, and bespoke port scheduling.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Read Chapter</a>
+          </div>
+
+          <div class="cruise-card" style="padding: 26px;" data-aos="fade-up" data-aos-delay="300">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 14px;"><i class="fa-solid fa-wine-glass"></i></div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 10px;">The Sommelier's Reserve List</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">How all-inclusive vintages are selected and paired with nightly six-course degustation menus.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Read Chapter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: YACHT MECHANICS & SCIENCE INSIGHTS
+         ========================================================================== -->
+    <section class="section section-dark" aria-label="Luxury Cruise Insights">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Behind The Helm</span>
+          <h2>The Science of Maritime Silence</h2>
+          <p>Naval architecture secrets that make boutique ocean travel extraordinarily stable, silent, and refined.</p>
+        </div>
+
+        <div class="grid-3">
+          <div style="background: var(--color-surface-dark); border: 1px solid rgba(255,255,255,0.08); padding: 28px; border-radius: var(--radius-md);" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 10px;">Zero-Speed Stabilizers</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 18px;">How computer-controlled gyroscopic fins neutralize roll even when anchored in open ocean bays.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Read Insight</a>
+          </div>
+
+          <div style="background: var(--color-surface-dark); border: 1px solid rgba(255,255,255,0.08); padding: 28px; border-radius: var(--radius-md);" data-aos="fade-up" data-aos-delay="200">
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 10px;">Acoustic Decoupling</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 18px;">Engineering techniques that isolate engine vibrations to ensure whispering silence in all guest suites.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Read Insight</a>
+          </div>
+
+          <div style="background: var(--color-surface-dark); border: 1px solid rgba(255,255,255,0.08); padding: 28px; border-radius: var(--radius-md);" data-aos="fade-up" data-aos-delay="300">
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 10px;">Champagne Chemistry at Sea</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 18px;">Why maritime barometric pressure and sea air enhance brioche and mineral notes in vintage Grand Crus.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Read Insight</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: CAPSULE WARDROBE & PACKING ESSENTIALS
+         ========================================================================== -->
+    <section class="section section-sand" aria-label="Packing Tips">
+      <div class="container">
+        <div class="feature-split">
+          <div data-aos="fade-right">
+            <span class="eyebrow">Curated Luggage</span>
+            <h2>The Art of the Transatlantic Capsule Wardrobe</h2>
+            <p style="margin-bottom: 18px;">
+              From linen separates for sunlit Mediterranean port walks to bespoke cashmere wraps for brisk evening deck stargazing, packing for a luxury voyage is an exercise in timeless tailoring.
+            </p>
+            <p style="margin-bottom: 24px;">
+              Learn how to transition seamlessly between daytime resort elegance and formal gala evenings, complete with our downloadable packing checklist.
+            </p>
+            <a href="404.html" class="btn btn-primary">Download Packing Checklist <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-left">
+            <img src="assets/blog-packing.webp" alt="Elegant luxury luggage and wardrobe pieces" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 7: EVERYDAY RITUALS AT SEA
+         ========================================================================== -->
+    <section class="section" aria-label="Onboard Experiences Spotlight">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Life at Sea</span>
+          <h2>Moments of Everyday Elegance</h2>
+          <p>Snapshots of the serene rituals that define a sea day aboard Aurelia Oceanic Voyages.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="cruise-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="cruise-card-img" style="height: 220px;">
+              <img src="assets/experience-sunset.webp" alt="Sunset cocktail on teak aft deck" loading="lazy">
+            </div>
+            <div class="cruise-card-body">
+              <h3 style="font-size: 1.25rem; margin-bottom: 8px;">The Twilight Aperitivo</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 14px;">Complimentary Bellinis and hand-carved Jamón Ibérico on the open aft deck as the ship sets sail.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Explore Ritual</a>
+            </div>
+          </div>
+
+          <div class="cruise-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="cruise-card-img" style="height: 220px;">
+              <img src="assets/entertainment-pool.webp" alt="Morning swim in heated infinity pool" loading="lazy">
+            </div>
+            <div class="cruise-card-body">
+              <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Dawn Infinity Laps</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 14px;">Greet the rising sun in our heated seawater pool with fresh cold-pressed green juices poolside.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Explore Ritual</a>
+            </div>
+          </div>
+
+          <div class="cruise-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="cruise-card-img" style="height: 220px;">
+              <img src="assets/dining-specialty.webp" alt="Chef presentation at omakase table" loading="lazy">
+            </div>
+            <div class="cruise-card-body">
+              <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Chef's Table Masterclass</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 14px;">An intimate afternoon in the galley learning the art of hand-pinched tortellini and truffle reductions.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Explore Ritual</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 8: REGIONAL DISPATCHES GRID
+         ========================================================================== -->
+    <section class="section section-sand" aria-label="Regional Dispatches">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Global Field Notes</span>
+          <h2>Field Dispatches Across the Continents</h2>
+          <p>Read essays from voyages navigating the Caribbean, Arctic, and East Asia.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="cruise-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="cruise-card-img" style="height: 200px;">
+              <img src="assets/blog-caribbean.webp" alt="Caribbean turquoise sea" loading="lazy">
+            </div>
+            <div class="cruise-card-body">
+              <div class="cruise-card-meta">
+                <span><i class="fa-regular fa-clock"></i> 5 Min</span>
+                <span><i class="fa-solid fa-tag"></i> Caribbean</span>
+              </div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Grenadines by Starlight</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">Navigating the coral barrier of Tobago Cays where green sea turtles graze in turquoise shallows.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Read Article</a>
+            </div>
+          </article>
+
+          <article class="cruise-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="cruise-card-img" style="height: 200px;">
+              <img src="assets/blog-alaska.webp" alt="Alaska snowy mountain inlet" loading="lazy">
+            </div>
+            <div class="cruise-card-body">
+              <div class="cruise-card-meta">
+                <span><i class="fa-regular fa-clock"></i> 7 Min</span>
+                <span><i class="fa-solid fa-tag"></i> Alaska</span>
+              </div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 8px;">The Blue Cathedral: Hubbard Glacier</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">Witnessing ancient 400-year-old ice calving into icy bays from our silent electric bow deck.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Read Article</a>
+            </div>
+          </article>
+
+          <article class="cruise-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="cruise-card-img" style="height: 200px;">
+              <img src="assets/destination-asia.webp" alt="Japan seaside shrine gate" loading="lazy">
+            </div>
+            <div class="cruise-card-body">
+              <div class="cruise-card-meta">
+                <span><i class="fa-regular fa-clock"></i> 6 Min</span>
+                <span><i class="fa-solid fa-tag"></i> Japan</span>
+              </div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 8px;">The Quiet Isles of the Seto Inland Sea</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">Contemporary art installations, historic pottery villages, and cedar-scented island shrines.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Read Article</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 9: TOPIC FILTER HUB & ARCHIVE SEARCH
+         ========================================================================== -->
+    <section class="section" aria-label="Topic Filter and Search">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+          <span class="eyebrow">Search The Gazette Archive</span>
+          <h2 style="margin-bottom: 16px;">Explore Articles by Subject or Port</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: 24px;">Filter through our rich repository of ocean monographs and traveler dispatches.</p>
+          
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px;">
+            <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-compass"></i> All Articles (48)</a>
+            <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-water"></i> Mediterranean (14)</a>
+            <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-icicles"></i> Norwegian Fjords (8)</a>
+            <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-utensils"></i> Maritime Gastronomy (12)</a>
+            <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-suitcase-rolling"></i> Packing & Prep (6)</a>
+          </div>
+
+          <form action="404.html" method="get" style="display: flex; gap: 10px;">
+            <input type="text" placeholder="Search by port, chef, or topic..." style="flex-grow: 1; padding: 14px 18px; border: 1px solid var(--border-gold); border-radius: var(--radius-sm); font-size: 0.95rem; background: #FFFFFF;" aria-label="Search articles">
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Search Archive</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 10: GAZETTE PRINT EDITION & FINAL CTA
+         ========================================================================== -->
+    <section class="section section-dark" aria-label="Gazette Subscription and Final CTA">
+      <div class="container">
+        <div style="max-width: 780px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+          <span class="eyebrow text-gold">The Aurelia Gazette</span>
+          <h2 style="color: #FFFFFF; font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 20px;">
+            Order the Seasonal Print Journal & Begin Your Voyage
+          </h2>
+          <p style="color: #BAC7D5; font-size: 1.15rem; line-height: 1.8; margin-bottom: 34px;">
+            Receive our lavish 120-page linen-bound seasonal monograph delivered directly to your private residence, or explore available staterooms for forthcoming voyages.
+          </p>
+          
+          <form class="footer-newsletter-form" action="404.html" method="get" novalidate style="max-width: 520px; margin: 0 auto 36px; display: flex; gap: 10px;">
+            <input type="email" placeholder="Enter your email for private dispatches..." required style="flex-grow: 1; padding: 14px 18px; background: rgba(255,255,255,0.08); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); color: #FFFFFF;" aria-label="Newsletter email">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+
+          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="404.html" class="btn btn-primary btn-lg">Explore 2026 Voyages <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="404.html" class="btn btn-outline-white btn-lg">Order Print Monograph</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </a>
+          <p>
+            Premier boutique luxury ocean line providing all-suite voyages, Michelin-inspired dining, and personalized global expeditions.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="blog.html" class="footer-link">Blog</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Client Access</h4>
+          <ul class="footer-links">
+            <li><a href="login.html" class="footer-link">Guest Portal Login</a></li>
+            <li><a href="signup.html" class="footer-link">Register Account</a></li>
+            <li><a href="login.html" class="footer-link">Operations Control</a></li>
+            <li><a href="404.html" class="footer-link">Charter Enquiries</a></li>
+            <li><a href="404.html" class="footer-link">Travel Advisor Desk</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="404.html" class="footer-link">Mediterranean & Aegean</a></li>
+            <li><a href="404.html" class="footer-link">Norwegian Fjords</a></li>
+            <li><a href="404.html" class="footer-link">Caribbean Archipelagos</a></li>
+            <li><a href="404.html" class="footer-link">Alaska & Arctic</a></li>
+            <li><a href="404.html" class="footer-link">Japan & South Pacific</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-col-title">The Aurelia Gazette</h4>
+          <p>Receive private seasonal announcements, maiden voyage releases, and travel essays.</p>
+          <form class="footer-newsletter-form" action="404.html" method="get" novalidate>
+            <input type="email" placeholder="Your email address..." aria-label="Newsletter Email Address" required>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer-card">
+        <p><strong>Demonstration Notice:</strong> Aurelia Oceanic Voyages is a fictional luxury cruise company created for design and technical demonstration purposes. All articles, travel stories, interviews, and publications are illustrative demonstrations.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 stackly all rights reserved.</div>
+        <div class="footer-social-links">
+          <a href="404.html" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/animations.js"></script>
+</body>
+</html>

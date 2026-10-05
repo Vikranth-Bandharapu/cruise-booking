@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cruise Services & Bespoke Hospitality | Aurelia Oceanic Voyages</title>
+  <meta name="description" content="Discover Aurelia's unparalleled all-inclusive luxury cruise services: private butler service, Michelin gastronomy, curated shore expeditions, and holistic wellness.">
+  <meta name="keywords" content="cruise services, luxury cruise amenities, private butler, fine dining at sea, shore excursions, cruise wellness, ocean spa">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2308162B' stroke='%23C5A880' stroke-width='4'/><path d='M30 65 Q50 30 70 65 Q50 55 30 65' fill='%23C5A880'/></svg>">
+
+  <!-- Font Awesome & AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="header-auth-link">Sign In</a>
+        <a href="signup.html" class="header-auth-link signup">Sign Up</a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </div>
+      <button class="drawer-close-btn" aria-label="Close Mobile Menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="services.html" class="mobile-nav-link active"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="about.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="blog.html" class="mobile-nav-link"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+    </ul>
+
+    <div class="mobile-drawer-actions">
+      <a href="login.html" class="btn btn-outline-white btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Create Account</a>
+      <a href="404.html" class="btn btn-azure btn-sm">Explore Voyages</a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         SECTION 1: SERVICES HERO
+         ========================================================================== -->
+    <section class="section-dark" style="position: relative; padding: 160px 0 100px; overflow: hidden;" aria-label="Services Hero">
+      <div style="position: absolute; inset: 0; background: url('assets/ship-exterior-2.webp') center/cover no-repeat; filter: brightness(0.4); z-index: 1;"></div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 22, 43, 0.6) 0%, rgba(8, 22, 43, 0.95) 100%); z-index: 2;"></div>
+
+      <div class="container" style="position: relative; z-index: 3; text-align: center;">
+        <span class="eyebrow hero-badge" data-aos="fade-up">Bespoke Nautical Hospitality</span>
+        <h1 class="hero-title text-white" style="margin-bottom: 20px;" data-aos="fade-up" data-aos-delay="100">
+          The Aurelia Standard of Ocean Service
+        </h1>
+        <p class="hero-desc text-light" style="max-width: 740px; margin: 0 auto 36px; font-size: 1.2rem; line-height: 1.8;" data-aos="fade-up" data-aos-delay="200">
+          From the moment you envision your voyage until you disembark with cherished memories, our team orchestrates every detail with understated perfection and quiet discretion.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center;" data-aos="fade-up" data-aos-delay="300">
+          <a href="404.html" class="btn btn-primary">Plan Your Journey <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html" class="btn btn-outline-white">Consult Concierge</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: DEDICATED BUTLER GUILD
+         ========================================================================== -->
+    <section class="section" aria-label="Butler Services">
+      <div class="container">
+        <div class="feature-split">
+          <div data-aos="fade-right">
+            <span class="eyebrow">British Butler Guild Standards</span>
+            <h2>Intuitive Stateroom & Suite Service</h2>
+            <p style="margin-bottom: 18px;">
+              Trained in the time-honored traditions of the British Butler Guild, our suite attendants provide an unmatched level of intuitive care. From unpacking your steamer trunks to drawing evening bath rituals infused with Mediterranean sea salts, your comfort is seamlessly orchestrated.
+            </p>
+            <p style="margin-bottom: 24px;">
+              Your dedicated butler coordinates in-suite private dining, reserves cabanas at each port club, ensures your preferred morning newspaper is printed, and chills your favorite champagne vintage to the precise cellar temperature.
+            </p>
+            <a href="404.html" class="btn btn-outline-gold">Explore Butler Privileges <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-left">
+            <img src="assets/blog-butler.webp" alt="Aurelia private stateroom butler providing silver tray service" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: PRIVATE AVIATION & CHAUFFEUR TRANSFERS
+         ========================================================================== -->
+    <section class="section section-sand" aria-label="Aviation and Transfers">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Door-to-Gangway Care</span>
+          <h2>Private Aviation & Executive Chauffeur Desks</h2>
+          <p>We eliminate the friction of travel by managing your entire journey from your front doorstep to the vessel's gangway.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="cruise-card" style="padding: 30px;" data-aos="fade-up" data-aos-delay="100">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 14px;"><i class="fa-solid fa-plane-departure"></i></div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Private Aviation Concierge</h3>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px;">
+              Charter flights on Bombardier Global and Gulfstream jets connecting directly to coastal ports, with expedited tarmac immigration clearance.
+            </p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Aviation Desk</a>
+          </div>
+
+          <div class="cruise-card" style="padding: 30px;" data-aos="fade-up" data-aos-delay="200">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 14px;"><i class="fa-solid fa-car"></i></div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Maybach Chauffeur Fleet</h3>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px;">
+              Chauffeured Mercedes-Maybach and executive electric vans greeting you at arrivals and escorting your party directly to the ship's private pier.
+            </p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Chauffeur Details</a>
+          </div>
+
+          <div class="cruise-card" style="padding: 30px;" data-aos="fade-up" data-aos-delay="300">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 14px;"><i class="fa-solid fa-luggage-cart"></i></div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 10px;">White-Glove Luggage Forwarding</h3>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px;">
+              Door-to-suite luggage valet dispatches your wardrobe directly from your home address into your stateroom closet prior to boarding.
+            </p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Luggage Forwarding</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: CURATED SMALL-GROUP EXCURSIONS
+         ========================================================================== -->
+    <section class="section" aria-label="Destination Excursions">
+      <div class="container">
+        <div class="feature-split reverse">
+          <div data-aos="fade-left">
+            <span class="eyebrow">Small-Group Access</span>
+            <h2>Shore Expeditions Limited to 8–12 Guests</h2>
+            <p style="margin-bottom: 18px;">
+              Unlike mass cruise lines that dispatch dozens of tour buses to crowded tourist destinations, Aurelia shore excursions are strictly intimate. Accompanied by local historians, sommeliers, and marine biologists, you unlock private access to closed world treasures.
+            </p>
+            <p style="margin-bottom: 24px;">
+              Savor private tastings inside family-owned cellars in Tuscany, enjoy after-hours access to the Doge's Palace in Venice, or charter private wooden gulets along Turkey's Turquoise Coast.
+            </p>
+            <a href="404.html" class="btn btn-primary">Browse Curated Excursions <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-right">
+            <img src="assets/experience-excursion.webp" alt="Curated small-group shore excursion along coastal waters" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: THALASSOTHERAPY & MARINE SPA
+         ========================================================================== -->
+    <section class="section section-dark" aria-label="Wellness and Spa">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Oceanic Longevity</span>
+          <h2>Thalassa Thermal Spa & Wellness Sanctuary</h2>
+          <p>Harnessing the restorative powers of marine trace minerals, seaweed extracts, and seawater vitality pools.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="cruise-card" style="background: var(--color-surface-dark); border-color: rgba(255,255,255,0.08); padding: 28px;" data-aos="fade-up" data-aos-delay="100">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 12px;"><i class="fa-solid fa-water-ladder"></i></div>
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 8px;">Vitality Hydrotherapy Pools</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 16px;">Multi-jet heated seawater circuit improving circulation and easing muscular tension under skylit ocean ceilings.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Explore Treatments</a>
+          </div>
+
+          <div class="cruise-card" style="background: var(--color-surface-dark); border-color: rgba(255,255,255,0.08); padding: 28px;" data-aos="fade-up" data-aos-delay="200">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 12px;"><i class="fa-solid fa-snowflake"></i></div>
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 8px;">Cryotherapy & Nordic Saunas</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 16px;">Full-spectrum Finnish panoramic sea saunas paired with sub-zero cryotherapy chambers for cellular longevity.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Explore Treatments</a>
+          </div>
+
+          <div class="cruise-card" style="background: var(--color-surface-dark); border-color: rgba(255,255,255,0.08); padding: 28px;" data-aos="fade-up" data-aos-delay="300">
+            <div style="font-size: 1.8rem; color: var(--color-accent-gold); margin-bottom: 12px;"><i class="fa-solid fa-spa"></i></div>
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 8px;">Biologique Recherche Facials</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 16px;">Targeted botanical and marine skincare protocols performed by certified European aesthetic therapists.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Explore Treatments</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: YOUTH & FAMILY EXPLORER PROGRAM
+         ========================================================================== -->
+    <section class="section" aria-label="Family and Youth Services">
+      <div class="container">
+        <div class="feature-split">
+          <div data-aos="fade-right">
+            <span class="eyebrow">Enrichment for Young Minds</span>
+            <h2>Junior Navigators Marine Academy</h2>
+            <p style="margin-bottom: 18px;">
+              Designed for multi-generational families, our Junior Navigators program turns the ocean into a living classroom. Led by certified marine biologists and navigators, children explore celestial sextant reading, coral reef ecology, and ocean current mapping.
+            </p>
+            <p style="margin-bottom: 24px;">
+              Our dedicated family suites feature sound-dampened interconnecting rooms, child-safe terrace gates, bespoke children's degustation dining, and 24/7 certified nanny care for private parental evenings.
+            </p>
+            <a href="404.html" class="btn btn-outline-gold">Family Services Catalog</a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-left">
+            <img src="assets/destination-caribbean.webp" alt="Pristine Caribbean waters for family marine discovery" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 7: ROMANTIC MILESTONES & CELEBRATIONS
+         ========================================================================== -->
+    <section class="section section-sand" aria-label="Romantic Celebrations">
+      <div class="container">
+        <div class="feature-split reverse">
+          <div data-aos="fade-left">
+            <span class="eyebrow">Milestones Under the Stars</span>
+            <h2>Vow Renewals, Anniversaries & Private Receptions</h2>
+            <p style="margin-bottom: 18px;">
+              Celebrate significant life milestones framed by boundless ocean horizons. Our onboard Event Director coordinates romantic vow renewals presided over by the Ship's Captain on the teak bow, followed by champagne receptions and bespoke fireworks displays over private waters.
+            </p>
+            <p style="margin-bottom: 24px;">
+              Couples enjoy private sunset dinners on secluded beaches, couples' massage treatments in private ocean cabanas, and vintage Dom Pérignon champagne tastings delivered to their suite veranda.
+            </p>
+            <a href="404.html" class="btn btn-primary">Plan a Special Occasion <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-right">
+            <img src="assets/experience-sunset.webp" alt="Sunset romance on yacht deck" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 8: HIGH-LATITUDE POLAR EXPEDITION SERVICES
+         ========================================================================== -->
+    <section class="section section-dark" aria-label="Expedition Travel">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">Polar Mastery</span>
+          <h2>Ice-Class 1A Expedition Support & Gear</h2>
+          <p>Navigating remote high-latitude arctic and antarctic waters with commercial Zodiac fleets and certified ice masters.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="cruise-card" style="background: var(--color-surface-dark); border-color: rgba(255,255,255,0.08); padding: 28px;" data-aos="fade-up" data-aos-delay="100">
+            <div style="font-size: 1.8rem; color: var(--color-accent-azure); margin-bottom: 12px;"><i class="fa-solid fa-ship"></i></div>
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 8px;">Commercial Zodiac Fleet</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 16px;">Quick-deploy military-grade inflatable craft accessing secluded glacial bays and penguin rookeries.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Expedition Fleet</a>
+          </div>
+
+          <div class="cruise-card" style="background: var(--color-surface-dark); border-color: rgba(255,255,255,0.08); padding: 28px;" data-aos="fade-up" data-aos-delay="200">
+            <div style="font-size: 1.8rem; color: var(--color-accent-azure); margin-bottom: 12px;"><i class="fa-solid fa-vest"></i></div>
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 8px;">Bespoke Polar Parka Fitting</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 16px;">Complimentary custom Aurelia expedition parkas, waterproof boots, and thermal binoculars in each suite.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Gear Inclusions</a>
+          </div>
+
+          <div class="cruise-card" style="background: var(--color-surface-dark); border-color: rgba(255,255,255,0.08); padding: 28px;" data-aos="fade-up" data-aos-delay="300">
+            <div style="font-size: 1.8rem; color: var(--color-accent-azure); margin-bottom: 12px;"><i class="fa-solid fa-person-kayaking"></i></div>
+            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 8px;">Glacial Sea Kayaking</h3>
+            <p style="color: #BAC7D5; font-size: 0.9rem; margin-bottom: 16px;">Glide silently through iceberg arches under the supervision of world-champion sea kayak guides.</p>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Kayaking Program</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 9: 24/7 GUEST PURSER & HOSPITAL CARE
+         ========================================================================== -->
+    <section class="section" aria-label="Guest Care and Medical">
+      <div class="container">
+        <div class="feature-split">
+          <div data-aos="fade-right">
+            <span class="eyebrow">Peace of Mind at Sea</span>
+            <h2>Comprehensive Medical Facilities & Purser Desk</h2>
+            <p style="margin-bottom: 18px;">
+              Every Aurelia vessel features an accredited maritime medical center staffed around the clock by board-certified emergency medicine physicians and critical care nurses, equipped with digital radiography and satellite telemedicine links to top European university hospitals.
+            </p>
+            <p style="margin-bottom: 24px;">
+              Our Purser Desk manages international currency exchanges, confidential courier dispatch, secure stateroom safes, and global Starlink high-speed satellite connectivity with zero drop-offs.
+            </p>
+            <a href="404.html" class="btn btn-outline-gold">Review Medical & Safety Protocols</a>
+          </div>
+
+          <div class="feature-split-img" data-aos="fade-left">
+            <img src="assets/team-hotel-director.webp" alt="Senior hotel director and purser officer" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 10: 4-STAGE SERVICE JOURNEY & FINAL CTA
+         ========================================================================== -->
+    <section class="section section-sand" aria-label="Service Journey Process">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="eyebrow">The Service Journey</span>
+          <h2>Four Steps to Your Tailored Voyage</h2>
+          <p>How our private concierge team orchestrates your personalized seafaring experience.</p>
+        </div>
+
+        <div class="grid-4" style="margin-bottom: 60px;">
+          <div class="cruise-card" style="padding: 24px;" data-aos="fade-up" data-aos-delay="100">
+            <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 6px;">Step 01</span>
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Private Consultation</h3>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">We consult on suite views, dietary desires, and favorite regional pastimes.</p>
+          </div>
+
+          <div class="cruise-card" style="padding: 24px;" data-aos="fade-up" data-aos-delay="200">
+            <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 6px;">Step 02</span>
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Itinerary Tailoring</h3>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">Curated shore guides, private flights, and sommelier cellar requests confirmed.</p>
+          </div>
+
+          <div class="cruise-card" style="padding: 24px;" data-aos="fade-up" data-aos-delay="300">
+            <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 6px;">Step 03</span>
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Pre-Cruise Valet</h3>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">Luggage forwarded, private chauffeur dispatched, and digital boarding pass issued.</p>
+          </div>
+
+          <div class="cruise-card" style="padding: 24px;" data-aos="fade-up" data-aos-delay="400">
+            <span class="eyebrow text-gold" style="font-size: 0.72rem; margin-bottom: 6px;">Step 04</span>
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Seamless Embarkation</h3>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">Step aboard to champagne, unpacked garments, and breathtaking open ocean vistas.</p>
+          </div>
+        </div>
+
+        <!-- Closing CTA Banner inside Section 10 -->
+        <div style="background: var(--color-primary); color: #FFFFFF; border-radius: var(--radius-lg); padding: 50px 40px; text-align: center; border: 1px solid var(--border-gold);" data-aos="fade-up">
+          <span class="eyebrow text-gold">Begin The Experience</span>
+          <h2 style="color: #FFFFFF; font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 16px;">Speak With an Aurelia Private Voyage Specialist</h2>
+          <p style="color: #BAC7D5; max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.7;">
+            Allow our team to tailor an itinerary that matches your personal standard of luxury.
+          </p>
+          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="404.html" class="btn btn-primary btn-lg">Explore Available Voyages <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="404.html" class="btn btn-outline-white btn-lg">Request Private Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </a>
+          <p>
+            Premier boutique luxury ocean line providing all-suite voyages, Michelin-inspired dining, and personalized global expeditions.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="blog.html" class="footer-link">Blog</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Client Access</h4>
+          <ul class="footer-links">
+            <li><a href="login.html" class="footer-link">Guest Portal Login</a></li>
+            <li><a href="signup.html" class="footer-link">Register Account</a></li>
+            <li><a href="login.html" class="footer-link">Operations Control</a></li>
+            <li><a href="404.html" class="footer-link">Charter Enquiries</a></li>
+            <li><a href="404.html" class="footer-link">Travel Advisor Desk</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="404.html" class="footer-link">Mediterranean & Aegean</a></li>
+            <li><a href="404.html" class="footer-link">Norwegian Fjords</a></li>
+            <li><a href="404.html" class="footer-link">Caribbean Archipelagos</a></li>
+            <li><a href="404.html" class="footer-link">Alaska & Arctic</a></li>
+            <li><a href="404.html" class="footer-link">Japan & South Pacific</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-col-title">The Aurelia Gazette</h4>
+          <p>Receive private seasonal announcements, maiden voyage releases, and travel essays.</p>
+          <form class="footer-newsletter-form" action="404.html" method="get" novalidate>
+            <input type="email" placeholder="Your email address..." aria-label="Newsletter Email Address" required>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer-card">
+        <p><strong>Demonstration Notice:</strong> Aurelia Oceanic Voyages is a fictional luxury cruise company created for design and technical demonstration purposes. All services, packages, amenities, and itineraries are illustrative demonstrations.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 stackly all rights reserved.</div>
+        <div class="footer-social-links">
+          <a href="404.html" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="404.html" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/animations.js"></script>
+</body>
+</html>

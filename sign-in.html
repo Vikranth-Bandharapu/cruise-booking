@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | Aurelia Voyage & Fleet Management Portal</title>
+  <meta name="description" content="Sign in to your Aurelia Customer Voyage Portal or Fleet Operations Command Center. Manage reservations, manifests, and personal voyage itineraries.">
+  <meta name="keywords" content="cruise login, guest portal, fleet operations login, voyage portal, sign in">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2308162B' stroke='%23C5A880' stroke-width='4'/><path d='M30 65 Q50 30 70 65 Q50 55 30 65' fill='%23C5A880'/></svg>">
+
+  <!-- Font Awesome & Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body style="background-color: var(--color-bg-sand); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
+
+  <!-- Site Header -->
+  <header class="site-header" style="background: rgba(8, 22, 43, 0.95);">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Auth -->
+      <div class="header-actions">
+        <a href="login.html" class="header-auth-link active">Sign In</a>
+        <a href="signup.html" class="header-auth-link signup">Sign Up</a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Slide-out Navigation Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
+      </div>
+      <button class="drawer-close-btn" aria-label="Close Mobile Menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="about.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="blog.html" class="mobile-nav-link"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+    </ul>
+
+    <div class="mobile-drawer-actions">
+      <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-outline-white btn-sm">Create Account</a>
+    </div>
+  </aside>
+
+  <!-- Login Main Card -->
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 120px 20px 60px;">
+    <div style="width: 100%; max-width: 480px; opacity: 1; visibility: visible;">
+      <!-- Card Container -->
+      <div class="cruise-card" style="padding: 40px; border-radius: var(--radius-lg); background: #FFFFFF; box-shadow: var(--shadow-lg); opacity: 1; visibility: visible;">
+        <div style="text-align: center; margin-bottom: 28px;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(197, 168, 128, 0.12); color: var(--color-accent-gold); display: inline-flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 14px; border: 1px solid var(--border-gold);">
+            <i class="fa-solid fa-anchor"></i>
+          </div>
+          <h1 style="font-size: 1.85rem; margin-bottom: 6px;">Sign In to Aurelia</h1>
+          <p style="font-size: 0.92rem; color: var(--color-text-muted);">
+            Access your personal voyage itinerary or operations command.
+          </p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" novalidate>
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="loginEmail" class="form-label">Email Address <span class="required">*</span></label>
+            <input type="text" id="loginEmail" class="form-control" placeholder="Enter your email" required autocomplete="username">
+            <div class="error-feedback"></div>
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label for="loginPassword" class="form-label" style="margin-bottom: 0;">Password <span class="required">*</span></label>
+              <a href="404.html" style="font-size: 0.84rem; color: var(--color-accent-azure); text-decoration: none; font-weight: 500;">Forgot Password?</a>
+            </div>
+            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+            <div class="error-feedback"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 14px;">
+            <i class="fa-solid fa-right-to-bracket"></i> Sign In
+          </button>
+        </form>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); text-align: center; font-size: 0.88rem; color: var(--color-text-muted);">
+          Do not possess an account yet? <a href="signup.html" style="color: var(--color-accent-azure); font-weight: 600;">Create Registration</a>
+        </div>
+      </div>
+
+      <!-- Demonstration Security Disclosure -->
+      <div style="text-align: center; margin-top: 20px; font-size: 0.78rem; color: #8C9CAE;">
+        <i class="fa-solid fa-shield-halved"></i> Demonstration Mode: Passwords are validated locally and never transmitted or persisted in storage.
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 20px 0; border-top: 1px solid var(--border-subtle); text-align: center; font-size: 0.8rem; color: var(--color-text-muted); background: #FFFFFF;">
+    <div class="container">
+      &copy; 2026 stackly all rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+  <script src="assets/auth.js"></script>
+</body>
+</html>

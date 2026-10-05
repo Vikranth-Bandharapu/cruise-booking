@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyager Portal | Lady Eleanor Vance | Aurelia Oceanic Voyages</title>
+  <meta name="description" content="Personalized Voyager Portal for Aurelia guests. View upcoming cruise countdown, e-boarding pass, suite amenities, butler requests, and shore excursions.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2308162B' stroke='%23C5A880' stroke-width='4'/><path d='M30 65 Q50 30 70 65 Q50 55 30 65' fill='%23C5A880'/></svg>">
+
+  <!-- Font Awesome & Chart.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/dashboard.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body class="dashboard-body" style="background-color: #FAF8F5;">
+
+  <div class="dashboard-wrapper">
+    <!-- ==========================================================================
+         CUSTOMER SIDEBAR (16 NAV ITEMS)
+         ========================================================================== -->
+    <aside class="dashboard-sidebar" style="background: #091C36; border-right: 1px solid rgba(197, 168, 128, 0.25);" aria-label="Customer Navigation Sidebar">
+      <div class="sidebar-brand">
+        <a href="customer-dashboard.html" class="brand-logo" aria-label="Stackly Customer Dashboard">
+          <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img" style="height: 34px; width: auto;">
+        </a>
+      </div>
+
+      <!-- Active User Profile Card in Sidebar -->
+      <div class="sidebar-user-card" style="padding: 14px 16px; margin: 14px 16px 8px; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-sm); border: 1px solid rgba(197, 168, 128, 0.25); display: flex; align-items: center; gap: 10px;">
+        <div class="user-avatar" id="custSidebarAvatar" style="width: 36px; height: 36px; font-size: 0.85rem; border-radius: 50%; background: var(--color-accent-gold); color: #08162B; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">GV</div>
+        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-grow: 1;">
+          <div id="custSidebarName" class="user-display-name" style="font-size: 0.85rem; font-weight: 600; color: #FFFFFF; overflow: hidden; text-overflow: ellipsis;">Guest Voyager</div>
+          <div id="custSidebarEmail" class="user-display-email" style="font-size: 0.72rem; color: var(--color-accent-gold); overflow: hidden; text-overflow: ellipsis;">voyager@stackly.com</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#cust-welcome" class="sidebar-link active"><i class="fa-solid fa-house-chimney-window"></i> <span>Voyage Overview</span></a>
+        <a href="#cust-upcoming" class="sidebar-link"><i class="fa-solid fa-ship"></i> <span>Upcoming Cruises</span> <span class="sidebar-badge" style="background: var(--color-accent-gold); color: #08162B;">1</span></a>
+        <a href="#cust-cabin" class="sidebar-link"><i class="fa-solid fa-bed"></i> <span>Stateroom & Cabin</span></a>
+        <a href="#cust-boarding" class="sidebar-link"><i class="fa-solid fa-ticket"></i> <span>Boarding & Folio</span></a>
+        <a href="#cust-profile" class="sidebar-link"><i class="fa-solid fa-user-gear"></i> <span>Profile & Concierge</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="logout-btn" data-action="logout" id="custSidebarLogout" title="Logout">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         MAIN CUSTOMER CONTENT
+         ========================================================================== -->
+    <div class="dashboard-main">
+      <!-- Mobile Navigation Drawer Toggle (Mobile Viewports Only) -->
+      <button type="button" class="sidebar-toggle-btn mobile-floating-toggle" aria-label="Toggle Navigation Sidebar">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Dashboard Sections Container (20 Meaningful Sections) -->
+      <main class="dashboard-content" style="gap: 32px;">
+
+        <!-- ==================================================================
+             SECTION 1: PERSONALIZED WELCOME & COUNTDOWN CLOCK
+             ================================================================== -->
+        <section id="cust-welcome" class="dash-panel" style="background: linear-gradient(135deg, #091C36 0%, #153359 100%); color: #FFFFFF; border-color: rgba(197, 168, 128, 0.4); padding: 36px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+            <div>
+              <span class="eyebrow text-gold" style="margin-bottom: 8px;"><i class="fa-solid fa-anchor"></i> Bon Voyage, Lady Eleanor</span>
+              <h1 style="color: #FFFFFF; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 8px;">Grand Mediterranean Odyssey</h1>
+              <p style="color: #BAC7D5; font-size: 1.05rem;">
+                Embarkation at Port Hercule, Monaco aboard <strong>Aurelia Sovereign</strong>.
+              </p>
+            </div>
+
+            <!-- Countdown Timer Blocks -->
+            <div style="display: flex; gap: 14px; text-align: center;">
+              <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-gold); padding: 12px 16px; border-radius: var(--radius-sm); min-width: 68px;">
+                <div id="countdownDays" style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--color-accent-gold); line-height: 1;">24</div>
+                <div style="font-size: 0.68rem; text-transform: uppercase; color: #BAC7D5; margin-top: 4px;">Days</div>
+              </div>
+              <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-gold); padding: 12px 16px; border-radius: var(--radius-sm); min-width: 68px;">
+                <div id="countdownHours" style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--color-accent-gold); line-height: 1;">14</div>
+                <div style="font-size: 0.68rem; text-transform: uppercase; color: #BAC7D5; margin-top: 4px;">Hours</div>
+              </div>
+              <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-gold); padding: 12px 16px; border-radius: var(--radius-sm); min-width: 68px;">
+                <div id="countdownMins" style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--color-accent-gold); line-height: 1;">38</div>
+                <div style="font-size: 0.68rem; text-transform: uppercase; color: #BAC7D5; margin-top: 4px;">Mins</div>
+              </div>
+              <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-gold); padding: 12px 16px; border-radius: var(--radius-sm); min-width: 68px;">
+                <div id="countdownSecs" style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--color-accent-gold); line-height: 1;">52</div>
+                <div style="font-size: 0.68rem; text-transform: uppercase; color: #BAC7D5; margin-top: 4px;">Secs</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 2: TRAVEL OVERVIEW & LOYALTY MILES
+             ================================================================== -->
+        <section id="cust-overview" class="dash-panel">
+          <div class="kpi-grid">
+            <div class="kpi-card" style="border-left: 4px solid var(--color-accent-gold);">
+              <div class="kpi-top">
+                <span class="kpi-title">Sovereign Sea Miles</span>
+                <div class="kpi-icon gold"><i class="fa-solid fa-compass"></i></div>
+              </div>
+              <div class="kpi-value">42,850</div>
+              <div class="kpi-bottom">
+                <span class="status-badge vip">Platinum Tier Active</span>
+              </div>
+            </div>
+
+            <div class="kpi-card" style="border-left: 4px solid var(--color-accent-azure);">
+              <div class="kpi-top">
+                <span class="kpi-title">Onboard Ship Credit</span>
+                <div class="kpi-icon azure"><i class="fa-solid fa-coins"></i></div>
+              </div>
+              <div class="kpi-value">$2,500.00</div>
+              <div class="kpi-bottom">
+                <span style="font-size: 0.8rem; color: #10B981;"><i class="fa-solid fa-check"></i> Applied to Folio</span>
+              </div>
+            </div>
+
+            <div class="kpi-card" style="border-left: 4px solid #10B981;">
+              <div class="kpi-top">
+                <span class="kpi-title">Booked Excursions</span>
+                <div class="kpi-icon green"><i class="fa-solid fa-person-walking-luggage"></i></div>
+              </div>
+              <div class="kpi-value">4 Experiences</div>
+              <div class="kpi-bottom">
+                <span style="font-size: 0.8rem; color: var(--dash-text-muted);">All VIP private guides</span>
+              </div>
+            </div>
+
+            <div class="kpi-card" style="border-left: 4px solid var(--dash-primary);">
+              <div class="kpi-top">
+                <span class="kpi-title">Stateroom Suite</span>
+                <div class="kpi-icon navy"><i class="fa-solid fa-door-closed"></i></div>
+              </div>
+              <div class="kpi-value">Suite 8042</div>
+              <div class="kpi-bottom">
+                <span style="font-size: 0.8rem; color: var(--dash-text-muted);">Penthouse Veranda • Deck 8</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 3: UPCOMING CRUISE HERO CARD
+             ================================================================== -->
+        <section id="cust-upcoming" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-anchor text-gold"></i> Upcoming Voyage Details</h2>
+            <span class="status-badge confirmed"><i class="fa-solid fa-circle-check"></i> Booking Confirmed</span>
+          </div>
+
+          <div class="feature-split" style="gap: 30px;">
+            <div class="feature-split-img" style="height: 280px;">
+              <img src="assets/destination-mediterranean.webp" alt="Mediterranean coastline" style="height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            <div>
+              <span class="eyebrow text-gold" style="margin-bottom: 4px;">12 Nights • Voyage #VOY-2026-08</span>
+              <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Grand Mediterranean Odyssey</h3>
+              <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 18px;">
+                Departing from Port Hercule, Monaco, traversing the Ligurian Sea to Portofino, Florence (Livorno), Bonifacio in Corsica, and concluding along the Spanish Costa Brava in Barcelona.
+              </p>
+              <div style="display: flex; gap: 24px; margin-bottom: 22px;">
+                <div>
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--dash-text-muted);">Embarkation</div>
+                  <div style="font-weight: 700; color: var(--dash-primary);">July 12, 2026 • 15:00</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--dash-text-muted);">Disembarkation</div>
+                  <div style="font-weight: 700; color: var(--dash-primary);">July 24, 2026 • 09:00</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--dash-text-muted);">Ship Name</div>
+                  <div style="font-weight: 700; color: var(--dash-primary);">Aurelia Sovereign</div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-gold btn-sm" data-modal-open="boardingPassModal">
+                <i class="fa-solid fa-file-pdf"></i> View Voyage Dossier
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 4: BOOKING SUMMARY LEDGER
+             ================================================================== -->
+        <section id="cust-summary" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-receipt text-gold"></i> Booking Confirmation Ledger</h2>
+            <span style="font-size: 0.85rem; color: var(--dash-text-muted);">Ref: #AUR-BK-992140</span>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Quantity</th>
+                  <th>Inclusive Price</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Penthouse Veranda Suite #8042</strong></td>
+                  <td>Accommodation</td>
+                  <td>1 Suite (2 Guests)</td>
+                  <td>$18,400.00</td>
+                  <td><span class="status-badge confirmed">Paid in Full</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Aurelia All-Inclusive Epicurean Package</strong></td>
+                  <td>Dining & Cellar</td>
+                  <td>2 Guests</td>
+                  <td>Included ($0)</td>
+                  <td><span class="status-badge confirmed">Complimentary</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Private Helicopter Shore Excursion (Tuscany)</strong></td>
+                  <td>Excursion</td>
+                  <td>2 Guests</td>
+                  <td>$2,400.00</td>
+                  <td><span class="status-badge confirmed">Charged to Card</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Sovereign Onboard Amenity Credit</strong></td>
+                  <td>Loyalty Reward</td>
+                  <td>Credit</td>
+                  <td>-$2,500.00</td>
+                  <td><span class="status-badge vip">Applied</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 5: CRUISE ITINERARY DAY-BY-DAY
+             ================================================================== -->
+        <section id="cust-itinerary" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-route text-gold"></i> Day-by-Day Voyage Itinerary</h2>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; gap: 20px; padding: 18px; background: #F8FAFC; border-radius: var(--radius-sm); border-left: 4px solid var(--color-accent-gold);">
+              <div style="font-weight: 700; color: var(--dash-gold); min-width: 60px;">Day 01</div>
+              <div>
+                <div style="font-weight: 700; font-size: 1.05rem; color: var(--dash-primary); margin-bottom: 4px;">Port Hercule, Monaco (Embarkation)</div>
+                <p style="font-size: 0.88rem; color: var(--dash-text-muted);">Boarding at 14:00. Welcome champagne reception in the Grand Salon. Ship departs at 22:00.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 20px; padding: 18px; background: #F8FAFC; border-radius: var(--radius-sm); border-left: 4px solid var(--dash-primary);">
+              <div style="font-weight: 700; color: var(--dash-primary); min-width: 60px;">Day 02</div>
+              <div>
+                <div style="font-weight: 700; font-size: 1.05rem; color: var(--dash-primary); margin-bottom: 4px;">Portofino, Italy (Anchor in Bay)</div>
+                <p style="font-size: 0.88rem; color: var(--dash-text-muted);">08:00 – 23:00. Private tender service to Piazzetta. Exclusive cooking masterclass at Hotel Splendido.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 20px; padding: 18px; background: #F8FAFC; border-radius: var(--radius-sm); border-left: 4px solid var(--dash-primary);">
+              <div style="font-weight: 700; color: var(--dash-primary); min-width: 60px;">Day 03</div>
+              <div>
+                <div style="font-weight: 700; font-size: 1.05rem; color: var(--dash-primary); margin-bottom: 4px;">Livorno & Florence, Italy</div>
+                <p style="font-size: 0.88rem; color: var(--dash-text-muted);">07:00 – 21:00. Chauffeur transfer to the Uffizi Gallery with after-hours curator tour.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 20px; padding: 18px; background: #F8FAFC; border-radius: var(--radius-sm); border-left: 4px solid var(--dash-primary);">
+              <div style="font-weight: 700; color: var(--dash-primary); min-width: 60px;">Day 04</div>
+              <div>
+                <div style="font-weight: 700; font-size: 1.05rem; color: var(--dash-primary); margin-bottom: 4px;">Bonifacio, Corsica</div>
+                <p style="font-size: 0.88rem; color: var(--dash-text-muted);">09:00 – 19:00. Dramatic limestone cliffs, King of Aragon staircase, and private catamaran charter.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 6: DEPARTURE PORT & DIGITAL BOARDING PASS
+             ================================================================== -->
+        <section id="cust-boarding" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-ticket text-gold"></i> Digital Boarding Card</h2>
+            <button type="button" class="btn btn-primary btn-sm" data-quick-action="download-pass"><i class="fa-solid fa-download"></i> Save to Wallet</button>
+          </div>
+
+          <!-- Boarding Pass Graphic -->
+          <div class="boarding-ticket">
+            <div class="ticket-header">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="brand-logo-mark" style="border-color: #FFFFFF; color: #FFFFFF;"><i class="fa-solid fa-compass"></i></div>
+                <div>
+                  <div style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700;">AURELIA OCEANIC VOYAGES</div>
+                  <div style="font-size: 0.7rem; letter-spacing: 0.1em; color: var(--dash-gold);">VIP EMBARKATION PASS</div>
+                </div>
+              </div>
+              <span class="status-badge vip" style="background: rgba(255,255,255,0.15); color: #FFFFFF; border-color: #FFFFFF;">Priority Boarding Group 1</span>
+            </div>
+
+            <div class="ticket-grid">
+              <div class="ticket-field">
+                <span class="ticket-label">Passenger Name</span>
+                <span class="ticket-val">Vance / Eleanor Lady</span>
+              </div>
+              <div class="ticket-field">
+                <span class="ticket-label">Vessel</span>
+                <span class="ticket-val">Aurelia Sovereign</span>
+              </div>
+              <div class="ticket-field">
+                <span class="ticket-label">Suite & Deck</span>
+                <span class="ticket-val">Suite 8042 (Deck 8)</span>
+              </div>
+              <div class="ticket-field">
+                <span class="ticket-label">Port of Departure</span>
+                <span class="ticket-val">Monaco Pier 1</span>
+              </div>
+            </div>
+
+            <div class="ticket-footer">
+              <div>
+                <span style="font-size: 0.72rem; color: #BAC7D5;">ELECTRONIC CONFIRMATION CODE</span>
+                <div style="font-size: 1rem; font-weight: 700; color: var(--dash-gold);">AUR-ETICKET-99214-MC</div>
+              </div>
+              <div class="mock-barcode">
+                ||| | |||| | |||||| | ||| |||| |
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 7: CABIN INFORMATION & STATEROOM
+             ================================================================== -->
+        <section id="cust-cabin" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-bed text-gold"></i> Your Private Sanctuary: Suite 8042</h2>
+            <button type="button" class="btn btn-outline-gold btn-sm" data-modal-open="requestServiceModal"><i class="fa-solid fa-bell"></i> Request Stateroom Service</button>
+          </div>
+
+          <div class="feature-split">
+            <div class="feature-split-img" style="height: 280px;">
+              <img src="assets/cabin-balcony.webp" alt="Penthouse Veranda Balcony Suite" style="height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            <div>
+              <span class="eyebrow text-gold" style="margin-bottom: 4px;">Penthouse Veranda Suite</span>
+              <h3 style="font-size: 1.5rem; margin-bottom: 12px;">680 sq ft with Oceanfront Balcony</h3>
+              <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 16px;">
+                Situated aft-starboard on Deck 8, Suite 8042 features an expansive private teak veranda with cushioned daybeds, walk-in dressing salon, Carrara marble bath with whirlpool tub, and full Illy espresso bar.
+              </p>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.85rem; color: var(--dash-primary); font-weight: 600;">
+                <div><i class="fa-solid fa-check text-gold"></i> Dedicated Butler: Jean-Luc</div>
+                <div><i class="fa-solid fa-check text-gold"></i> Custom Hypoallergenic Bedding</div>
+                <div><i class="fa-solid fa-check text-gold"></i> Bulgari Bath Amenities</div>
+                <div><i class="fa-solid fa-check text-gold"></i> Daily Evening Canapés</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 8: TRAVEL COMPANIONS
+             ================================================================== -->
+        <section id="cust-companions" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-user-group text-gold"></i> Registered Travel Companions</h2>
+            <button type="button" class="btn btn-primary btn-sm" onclick="window.showToast('info', 'Companion Invited', 'Invitation sent to add guest passport credentials (Demo).');"><i class="fa-solid fa-user-plus"></i> Add Companion</button>
+          </div>
+
+          <div class="grid-2">
+            <div style="display: flex; align-items: center; gap: 16px; padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: #C5A880; color: #08162B; font-weight: 700; display: flex; align-items: center; justify-content: center;">EV</div>
+              <div style="flex-grow: 1;">
+                <div style="font-weight: 700; color: var(--dash-primary);">Lady Eleanor Vance (Primary)</div>
+                <div style="font-size: 0.8rem; color: var(--dash-text-muted);">Passport: UK *******42 • Visa: Approved</div>
+              </div>
+              <span class="status-badge confirmed">Cleared</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 16px; padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: #08162B; color: #C5A880; font-weight: 700; display: flex; align-items: center; justify-content: center;">HV</div>
+              <div style="flex-grow: 1;">
+                <div style="font-weight: 700; color: var(--dash-primary);">Lord Harrison Vance (Guest)</div>
+                <div style="font-size: 0.8rem; color: var(--dash-text-muted);">Passport: UK *******18 • Visa: Approved</div>
+              </div>
+              <span class="status-badge confirmed">Cleared</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 9: DESTINATION HIGHLIGHTS & PORT GUIDES
+             ================================================================== -->
+        <section id="cust-destinations" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-map-pin text-gold"></i> Port of Call Curated Guides</h2>
+          </div>
+
+          <div class="grid-3">
+            <div class="cruise-card" style="padding: 20px;">
+              <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Portofino, Liguria</h3>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 12px;">Pasticceria San Giorgio, Castello Brown terrace, and secluded Paraggi cove swimming.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Download Port Guide</a>
+            </div>
+
+            <div class="cruise-card" style="padding: 20px;">
+              <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Florence, Tuscany</h3>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 12px;">Private leather workshop ateliers in Santa Croce and wine cellar cellars in Oltrarno.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Download Port Guide</a>
+            </div>
+
+            <div class="cruise-card" style="padding: 20px;">
+              <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Bonifacio, Corsica</h3>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 12px;">Limestone grotto cruises, chestnut honey tastings, and medieval fortress ramparts.</p>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Download Port Guide</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 10: EXCURSIONS RECOMMENDATIONS & BOOKINGS
+             ================================================================== -->
+        <section id="cust-excursions" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-person-hiking text-gold"></i> Booked & Curated Shore Excursions</h2>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="btn btn-outline-gold btn-sm excursion-filter-btn active" data-category="all">All</button>
+              <button type="button" class="btn btn-outline-gold btn-sm excursion-filter-btn" data-category="culinary">Culinary</button>
+              <button type="button" class="btn btn-outline-gold btn-sm excursion-filter-btn" data-category="culture">Culture</button>
+              <button type="button" class="btn btn-outline-gold btn-sm excursion-filter-btn" data-category="adventure">Adventure</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div class="excursion-item-card" data-category="culinary" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div>
+                <span class="status-badge confirmed" style="margin-bottom: 6px;">Reserved for 2</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Private Chianti Vineyard Helicopter Flight</h3>
+                <p style="font-size: 0.85rem; color: var(--dash-text-muted);">Port: Livorno • July 15 • 09:30 – 16:00 (Includes cellar degustation)</p>
+              </div>
+              <button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('info', 'Excursion Details', 'Helicopter departure coordinates confirmed at Livorno pad.');">View Voucher</button>
+            </div>
+
+            <div class="excursion-item-card" data-category="culture" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div>
+                <span class="status-badge confirmed" style="margin-bottom: 6px;">Reserved for 2</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">After-Hours Uffizi Gallery & Vasari Corridor</h3>
+                <p style="font-size: 0.85rem; color: var(--dash-text-muted);">Port: Livorno • July 15 • 18:00 – 21:00 (Private Art Historian)</p>
+              </div>
+              <button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('info', 'Excursion Details', 'Exclusive museum entrance credentials prepared.');">View Voucher</button>
+            </div>
+
+            <div class="excursion-item-card" data-category="adventure" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div>
+                <span class="status-badge pending" style="margin-bottom: 6px;">Recommended</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Private Riva Yacht Charter along Portofino Coast</h3>
+                <p style="font-size: 0.85rem; color: var(--dash-text-muted);">Port: Portofino • July 14 • 14:00 – 18:00 (Skipper & Prosecco)</p>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" onclick="window.showToast('success', 'Charter Requested', 'Concierge Jean-Luc will finalize Riva charter reservation.');">Book with Credit</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 11: PAYMENT OVERVIEW & ONBOARD FOLIO
+             ================================================================== -->
+        <section id="cust-spending" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-chart-column text-gold"></i> Onboard Folio Account Spending Breakdown</h2>
+            <div style="font-size: 0.95rem; font-weight: 700; color: var(--dash-primary);">
+              Remaining Credit Balance: <span style="color: #10B981;">$1,880.00</span>
+            </div>
+          </div>
+          <div style="height: 260px; position: relative;">
+            <canvas id="customerSpendingChart"></canvas>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 12: BOOKING HISTORY & PAST VOYAGES
+             ================================================================== -->
+        <section id="cust-history" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-clock-rotate-left text-gold"></i> Past Voyages & Sea Memories</h2>
+            <span style="font-size: 0.85rem; color: var(--dash-text-muted);">8 Completed Expeditions</span>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Voyage Year</th>
+                  <th>Itinerary</th>
+                  <th>Vessel</th>
+                  <th>Suite</th>
+                  <th>Miles Earned</th>
+                  <th>Voyage Album</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>August 2025</td>
+                  <td>Norwegian Fjords & Midnight Sun</td>
+                  <td>Aurelia Polaris</td>
+                  <td>Penthouse #8012</td>
+                  <td>+6,400 Sea Miles</td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">View Album</a></td>
+                </tr>
+                <tr>
+                  <td>January 2025</td>
+                  <td>Windward & Leeward Islands</td>
+                  <td>Aurelia Marina</td>
+                  <td>Veranda Suite #7014</td>
+                  <td>+4,800 Sea Miles</td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">View Album</a></td>
+                </tr>
+                <tr>
+                  <td>June 2024</td>
+                  <td>Aegean Antiquities & Santorini</td>
+                  <td>Aurelia Sovereign</td>
+                  <td>Penthouse #8042</td>
+                  <td>+5,600 Sea Miles</td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">View Album</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 13: TRAVEL DOCUMENTS & CLEARANCE
+             ================================================================== -->
+        <section id="cust-documents" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-file-shield text-gold"></i> Travel Documents & Health Clearances</h2>
+            <span class="status-badge confirmed"><i class="fa-solid fa-check"></i> 100% Cleared for Boarding</span>
+          </div>
+
+          <div class="grid-3">
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div style="font-weight: 700; margin-bottom: 4px;"><i class="fa-solid fa-passport text-gold"></i> Biometric Passports</div>
+              <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin-bottom: 10px;">Scanned and verified by European Immigration Desk.</p>
+              <span class="status-badge confirmed">Verified</span>
+            </div>
+
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div style="font-weight: 700; margin-bottom: 4px;"><i class="fa-solid fa-tags text-gold"></i> e-Luggage Tags</div>
+              <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin-bottom: 10px;">Color-coded gold tags for direct delivery to Suite 8042.</p>
+              <button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('success', 'Tags Printed', 'Digital luggage tags downloaded to printable PDF.');">Download Tags</button>
+            </div>
+
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div style="font-weight: 700; margin-bottom: 4px;"><i class="fa-solid fa-shield-heart text-gold"></i> Travel Insurance</div>
+              <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin-bottom: 10px;">Aurelia Sovereign Platinum comprehensive medical policy.</p>
+              <span class="status-badge confirmed">Active Coverage</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 14: SPECIAL REQUESTS & PREFERENCES
+             ================================================================== -->
+        <section id="cust-requests" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-wand-magic text-gold"></i> Special Requests & In-Suite Preferences</h2>
+            <button type="button" class="btn btn-primary btn-sm" data-modal-open="requestServiceModal"><i class="fa-solid fa-plus"></i> New Request</button>
+          </div>
+
+          <div class="grid-3">
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div style="font-weight: 700; margin-bottom: 4px;">Pillow Menu Selection</div>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 8px;">White Siberian Goose Down & Memory Foam contours.</p>
+              <span class="status-badge confirmed">Arranged</span>
+            </div>
+
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div style="font-weight: 700; margin-bottom: 4px;">Dietary & Galley Notes</div>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 8px;">Gluten-sensitive options; preference for chilled almond milk.</p>
+              <span class="status-badge confirmed">Chef Briefed</span>
+            </div>
+
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <div style="font-weight: 700; margin-bottom: 4px;">Anniversary Champagne</div>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 8px;">Dom Pérignon Vintage 2013 on ice at embarkation.</p>
+              <span class="status-badge confirmed">In Stateroom</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 15: REAL-TIME NOTIFICATIONS
+             ================================================================== -->
+        <section id="cust-notifications" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-bell text-gold"></i> Voyager Alerts & Port Updates</h2>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 14px; background: #ECFDF5; border-left: 4px solid #10B981; border-radius: var(--radius-sm);">
+              <i class="fa-solid fa-circle-check" style="color: #059669; font-size: 1.1rem;"></i>
+              <div>
+                <strong>Chauffeur Confirmed:</strong>
+                <span style="font-size: 0.88rem; color: #065F46;"> Your private Maybach transfer from Nice Airport (NCE) to Monaco Berth is scheduled for July 12 at 13:15.</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 14px; background: #EFF6FF; border-left: 4px solid #3B82F6; border-radius: var(--radius-sm);">
+              <i class="fa-solid fa-wine-glass" style="color: #2563EB; font-size: 1.1rem;"></i>
+              <div>
+                <strong>Chef's Table Invitation:</strong>
+                <span style="font-size: 0.88rem; color: #1E40AF;"> Executive Chef Moreau has reserved two seats for you at the Galley Degustation on Night 4.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 16: CONCIERGE MESSAGES & BUTLER CHAT
+             ================================================================== -->
+        <section id="cust-messages" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-comments text-gold"></i> Dedicated Butler Chat: Jean-Luc Dupont</h2>
+            <span class="status-badge active"><i class="fa-solid fa-circle"></i> Butler Online</span>
+          </div>
+
+          <div style="background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="align-self: flex-start; max-width: 80%; background: #FFFFFF; border: 1px solid var(--dash-border); padding: 12px 16px; border-radius: var(--radius-sm);">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--dash-gold); margin-bottom: 2px;">Head Butler Jean-Luc • 10:14 AM</div>
+              <p style="font-size: 0.9rem; color: var(--dash-text); margin: 0;">
+                "Bonjour Lady Eleanor. I have confirmed your unpacked garment pressing upon embarkation and placed the vintage Dom Pérignon in your suite's wine cellar. Is there any specific floral arrangement you would prefer on the salon table?"
+              </p>
+            </div>
+
+            <div style="align-self: flex-end; max-width: 80%; background: var(--dash-primary); color: #FFFFFF; padding: 12px 16px; border-radius: var(--radius-sm);">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-accent-gold); margin-bottom: 2px;">You • 10:28 AM</div>
+              <p style="font-size: 0.9rem; margin: 0;">
+                "White French peonies if available, thank you Jean-Luc. Looking forward to boarding in Monaco."
+              </p>
+            </div>
+          </div>
+
+          <form onsubmit="event.preventDefault(); window.showToast('success', 'Message Sent', 'Transmitted to Butler Jean-Luc on bridge intercom.'); this.reset();" style="display: flex; gap: 10px; margin-top: 10px;">
+            <input type="text" placeholder="Type a message or instruction for your butler..." required style="flex-grow: 1; padding: 12px 16px; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Send</button>
+          </form>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 17: GUEST EMAIL CENTER & DISPATCHES
+             ================================================================== -->
+        <section id="cust-email" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-envelope text-gold"></i> Voyage Bulletins & Invitations</h2>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Dispatch Subject</th>
+                  <th>From</th>
+                  <th>Received Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Welcome Aboard: Private Monaco Chauffeur & Embarkation Guide</strong></td>
+                  <td>Aurelia Concierge Directorate</td>
+                  <td>Yesterday</td>
+                  <td><button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('info', 'Opening Email', 'Rendering private embarkation memo.');">Read</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Exclusive Shore Invitation: Vintage Chianti Helicopter Tour</strong></td>
+                  <td>Executive Shore Excursion Team</td>
+                  <td>June 12, 2026</td>
+                  <td><button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('info', 'Opening Email', 'Rendering excursion invitation memo.');">Read</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 18: TRAVEL CALENDAR
+             ================================================================== -->
+        <section id="cust-calendar" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-calendar-days text-gold"></i> July 2026 Voyage Calendar</h2>
+            <span style="font-size: 0.85rem; color: var(--dash-text-muted);">Grand Mediterranean Odyssey</span>
+          </div>
+
+          <div class="grid-4">
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--dash-gold); font-weight: 700;">Sun, July 12</div>
+              <div style="font-weight: 700; font-size: 1.1rem; color: var(--dash-primary); margin: 6px 0;">Monaco</div>
+              <div style="font-size: 0.8rem; color: var(--dash-text-muted);">Embarkation 15:00</div>
+            </div>
+
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--dash-gold); font-weight: 700;">Mon, July 13</div>
+              <div style="font-weight: 700; font-size: 1.1rem; color: var(--dash-primary); margin: 6px 0;">Portofino</div>
+              <div style="font-size: 0.8rem; color: var(--dash-text-muted);">Anchor 08:00 – 23:00</div>
+            </div>
+
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--dash-gold); font-weight: 700;">Tue, July 14</div>
+              <div style="font-weight: 700; font-size: 1.1rem; color: var(--dash-primary); margin: 6px 0;">Livorno / Florence</div>
+              <div style="font-size: 0.8rem; color: var(--dash-text-muted);">Helicopter Excursion</div>
+            </div>
+
+            <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--dash-gold); font-weight: 700;">Fri, July 24</div>
+              <div style="font-weight: 700; font-size: 1.1rem; color: var(--dash-primary); margin: 6px 0;">Barcelona</div>
+              <div style="font-size: 0.8rem; color: var(--dash-text-muted);">Disembarkation 09:00</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 19: DEDICATED CONCIERGE SUPPORT
+             ================================================================== -->
+        <section id="cust-support" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-headset text-gold"></i> Dedicated 24/7 Voyage Concierge</h2>
+          </div>
+
+          <div class="grid-3">
+            <div style="padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Personal Voyage Architect</h3>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 8px;">Direct advisor: Henriette de Vigny</p>
+              <div style="font-weight: 700; color: var(--dash-primary);">+377 98 00 44 22</div>
+            </div>
+
+            <div style="padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Ship Satellite Hotline</h3>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 8px;">Aurelia Sovereign Purser Desk</p>
+              <div style="font-weight: 700; color: var(--dash-primary);">Direct Satellite Inmarsat 4</div>
+            </div>
+
+            <div style="padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Port Luggage Assistance</h3>
+              <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 8px;">Monaco Port Berth Valet</p>
+              <div style="font-weight: 700; color: var(--dash-primary);">valet@aureliavoyages.com</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 20: PROFILE AND PREFERENCES SETTINGS
+             ================================================================== -->
+        <section id="cust-profile" class="dash-panel">
+          <div class="dash-panel-header">
+            <h2 class="dash-panel-title"><i class="fa-solid fa-user-gear text-gold"></i> Voyager Profile & Privacy Preferences</h2>
+            <button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('success', 'Preferences Saved', 'Voyager profile and notification preferences updated.');">Save Changes</button>
+          </div>
+
+          <div class="grid-2">
+            <div>
+              <div class="form-group">
+                <label class="form-label">Full Voyager Name</label>
+                <input type="text" id="custProfileName" class="form-control user-display-name" value="Guest Voyager" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Contact Email</label>
+                <input type="email" id="custProfileEmail" class="form-control user-display-email" value="voyager@stackly.com" readonly>
+              </div>
+            </div>
+            <div>
+              <div class="form-group">
+                <label class="form-label">Primary Residence</label>
+                <input type="text" class="form-control" value="Kensington Palace Gardens, London, UK" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Emergency Shore Contact</label>
+                <input type="text" class="form-control" value="Lord Arthur Vance • +44 (0)20 7946 0999" readonly>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Voyager Portal Footer -->
+        <footer class="dash-panel" style="background: #091C36; color: #BAC7D5; border-color: rgba(197, 168, 128, 0.2); padding: 18px 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.85rem;">
+            <div>
+              &copy; 2026 stackly all rights reserved • Voyager Portal Session Active (Lady Eleanor Vance)
+            </div>
+            <div style="display: flex; gap: 20px; align-items: center;">
+              <a href="index.html" style="color: #FFFFFF;"><i class="fa-solid fa-house"></i> Public Website</a>
+              <a href="index.html" data-action="logout" style="color: #EF4444; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+              </a>
+            </div>
+          </div>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODALS FOR CUSTOMER PORTAL
+       ========================================================================== -->
+  <!-- 1. Boarding Pass Modal -->
+  <div id="boardingPassModal" class="dash-modal-backdrop">
+    <div class="dash-modal" style="max-width: 680px;">
+      <div class="dash-modal-header">
+        <h3 class="dash-modal-title">Digital Boarding Pass & QR Code</h3>
+        <button type="button" data-modal-close aria-label="Close Modal" style="font-size: 1.2rem; color: #94A3B8;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="dash-modal-body">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div style="display: inline-block; padding: 20px; background: #FFFFFF; border: 2px dashed var(--border-gold); border-radius: var(--radius-sm); margin-bottom: 12px;">
+            <i class="fa-solid fa-qrcode" style="font-size: 8rem; color: var(--dash-primary);"></i>
+          </div>
+          <div style="font-weight: 700; color: var(--dash-primary); font-size: 1.1rem;">AUR-PASS-8042-EV</div>
+          <div style="font-size: 0.82rem; color: var(--dash-text-muted);">Present at Port Hercule VIP Gangway for instant contactless suite key delivery.</div>
+        </div>
+        <div class="grid-2" style="font-size: 0.9rem; background: #F8FAFC; padding: 16px; border-radius: var(--radius-sm);">
+          <div><strong>Passenger:</strong> Lady Eleanor Vance</div>
+          <div><strong>Flagship:</strong> Aurelia Sovereign</div>
+          <div><strong>Suite:</strong> Penthouse #8042</div>
+          <div><strong>Boarding Time:</strong> July 12, 14:00</div>
+        </div>
+      </div>
+      <div class="dash-modal-footer">
+        <button type="button" class="btn btn-outline-gold btn-sm" data-modal-close>Close</button>
+        <button type="button" class="btn btn-primary btn-sm" data-modal-close onclick="window.showToast('success', 'Saved to Wallet', 'Boarding pass saved to Apple / Google Wallet format (Demo).');">Save to Phone</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Request Service Modal -->
+  <div id="requestServiceModal" class="dash-modal-backdrop">
+    <div class="dash-modal">
+      <div class="dash-modal-header">
+        <h3 class="dash-modal-title">Request Stateroom Service</h3>
+        <button type="button" data-modal-close aria-label="Close Modal" style="font-size: 1.2rem; color: #94A3B8;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="dash-modal-body">
+        <div class="form-group">
+          <label class="form-label">Service Type</label>
+          <select class="form-control">
+            <option>Pillow / Bedding Adjustment</option>
+            <option>In-Suite Champagne & Caviar Refreshment</option>
+            <option>Luggage Unpacking Assistance</option>
+            <option>Private Shore Transfer Coordination</option>
+            <option>Spa Appointment Scheduling</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Special Timing & Details</label>
+          <textarea class="form-control" rows="3" placeholder="Please specify desired time or notes for Butler Jean-Luc..."></textarea>
+        </div>
+      </div>
+      <div class="dash-modal-footer">
+        <button type="button" class="btn btn-outline-gold btn-sm" data-modal-close>Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm" data-modal-close onclick="window.showToast('success', 'Request Dispatched', 'Your stateroom request has been transmitted to Butler Jean-Luc.');">Transmit Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Toast Container -->
+  <div class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+  <script src="assets/auth.js"></script>
+  <script src="assets/dashboard.js"></script>
+</body>
+</html>
