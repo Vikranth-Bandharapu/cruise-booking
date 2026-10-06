@@ -61,10 +61,15 @@
          MAIN CUSTOMER CONTENT
          ========================================================================== -->
     <div class="dashboard-main">
-      <!-- Mobile Navigation Drawer Toggle (Mobile Viewports Only) -->
-      <button type="button" class="sidebar-toggle-btn mobile-floating-toggle" aria-label="Toggle Navigation Sidebar">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      <!-- Topbar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button type="button" class="sidebar-toggle-btn" aria-label="Toggle Navigation Sidebar">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a href="customer-dashboard.html" class="brand-logo mobile-topbar-logo" style="margin-left: 15px;" aria-label="Stackly Customer Dashboard"><style>@media(min-width:1025px){.mobile-topbar-logo{display:none !important;}}</style><img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img" style="height: 30px; width: auto; filter: brightness(0);"></a>
+        </div>
+      </header>
 
       <!-- Dashboard Sections Container (20 Meaningful Sections) -->
       <main class="dashboard-content" style="gap: 32px;">
@@ -654,7 +659,7 @@
             </div>
           </div>
 
-          <form class="concierge-chat-form" onsubmit="event.preventDefault(); window.location.href='404.html';" style="display: flex; gap: 10px; margin-top: 10px;">
+          <form class="concierge-chat-form" action="404.html" style="display: flex; gap: 10px; margin-top: 10px;">
             <input type="text" placeholder="Type a message or instruction for your butler..." required style="flex-grow: 1; min-width: 0; padding: 12px 16px; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); font-size: 0.9rem;">
             <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Send</button>
           </form>
@@ -876,3 +881,10 @@
   <script src="assets/dashboard.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
