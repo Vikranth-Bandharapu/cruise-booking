@@ -1,8 +1,9 @@
 /**
  * AURELIA OCEANIC VOYAGES — AUTHENTICATION SYSTEM
- * Simple demonstration authentication: 2 roles (Customer, Admin).
+ * Single Login Form with 2 Roles (Customer, Admin).
  * Accepts ANY email and ANY password for instant, frictionless sign-in.
  * Immediately redirects to customer-dashboard.html or admin-dashboard.html based on role.
+ * Whichever email is entered is preserved and displayed in that dashboard's sidebar.
  * Never stores passwords in localStorage or sessionStorage.
  */
 
@@ -17,55 +18,25 @@ if (document.readyState === 'loading') {
   startAuth();
 }
 
-// Initialize Login Form
-function initLoginForm() {
-  const loginForm = document.getElementById('loginForm');
-  if (!loginForm) return;
+// Perform login and redirect
+function performLogin(email, role, customName) {
+  const selectedRole = (role || 'customer').toLowerCase();
+  const defaultEmail = selectedRole === 'admin' ? 'admin@stackly.com' : 'voyager@stackly.com';
+  const finalEmail = (email && email.trim()) ? email.trim() : defaultEmail;
 
-  loginForm.addEventListener('submit', handleLoginSubmit);
-
-  // Also attach directly to the button if present to prevent any event failure
-  const submitBtn = loginForm.querySelector('button[type="submit"]');
-  if (submitBtn) {
-    submitBtn.addEventListener('click', (e) => {
-      // Allow form submission or handle directly
-    });
-  }
-}
-
-function handleLoginSubmit(e) {
-  if (e && typeof e.preventDefault === 'function') {
-    e.preventDefault();
-  }
-
-  const emailInput = document.getElementById('loginEmail');
-  const passwordInput = document.getElementById('loginPassword');
-  const roleSelect = document.getElementById('loginRole');
-
-  const rawEmail = emailInput ? emailInput.value.trim() : '';
-  const rawPassword = passwordInput ? passwordInput.value : '';
-
-  let selectedRole = 'customer';
-  if (roleSelect && roleSelect.value) {
-    selectedRole = roleSelect.value.toLowerCase();
-  } else if (rawEmail && rawEmail.toLowerCase().includes('admin')) {
-    selectedRole = 'admin';
-  } else {
-    selectedRole = 'customer';
-  }
-
-  const email = rawEmail || (selectedRole === 'admin' ? 'admin@stackly.com' : 'voyager@stackly.com');
-  const password = rawPassword || 'demo123';
-
-  // Determine display name from email or role
-  let displayName = 'Guest Voyager';
-  if (selectedRole === 'admin') {
-    displayName = 'Fleet Administrator';
-  } else if (rawEmail && rawEmail.includes('@')) {
-    const userPart = rawEmail.split('@')[0];
-    displayName = userPart.charAt(0).toUpperCase() + userPart.slice(1);
-  } else if (rawEmail) {
-    displayName = rawEmail.charAt(0).toUpperCase() + rawEmail.slice(1);
+  // Determine display name from customName, email, or role
+  let displayName = customName;
+  if (!displayName) {
+    if (selectedRole === 'admin') {
+      displayName = 'Fleet Administrator';
+    } else if (finalEmail && finalEmail.includes('@')) {
+      const userPart = finalEmail.split('@')[0];
+      displayName = userPart.charAt(0).toUpperCase() + userPart.slice(1);
+    } else if (finalEmail) {
+      displayName = finalEmail.charAt(0).toUpperCase() + finalEmail.slice(1);
+    } else {
+      displayName = 'Guest Voyager';
+    }
   }
 
   // Store safe non-sensitive session metadata (never store password)
@@ -73,12 +44,12 @@ function handleLoginSubmit(e) {
     const safeSession = {
       role: selectedRole,
       name: displayName,
-      email: email,
+      email: finalEmail,
       timestamp: Date.now()
     };
     sessionStorage.setItem('aurelia_session', JSON.stringify(safeSession));
     localStorage.setItem('aurelia_session', JSON.stringify(safeSession));
-    localStorage.setItem('aurelia_user_email', email);
+    localStorage.setItem('aurelia_user_email', finalEmail);
     localStorage.setItem('aurelia_user_name', displayName);
     localStorage.setItem('aurelia_user_role', selectedRole);
   } catch (err) {
@@ -91,15 +62,109 @@ function handleLoginSubmit(e) {
   // Show welcome toast if toast system is loaded
   try {
     if (typeof window.showToast === 'function') {
-      const roleTitle = selectedRole === 'admin' ? 'Admin' : 'Customer';
-      window.showToast('success', 'Sign In Successful', `Welcome, ${displayName}! Opening ${roleTitle} portal...`);
+      const roleTitle = selectedRole === 'admin' ? 'Admin Dashboard' : 'Customer Dashboard';
+      window.showToast('success', 'Sign In Successful', `Welcome, ${displayName}! Opening ${roleTitle}...`);
     }
   } catch (err) {
     // Continue navigation regardless
   }
 
-  // Navigate directly to the dashboard
+  // Navigate directly to target dashboard
   window.location.href = targetDashboard;
+}
+
+// Initialize Single Login Form with 2 Roles
+function initLoginForm() {
+  const loginForm = document.getElementById('loginForm');
+  if (!loginForm) return;
+
+  const roleSelect = document.getElementById('loginRole');
+  const roleBtnCustomer = document.getElementById('roleBtnCustomer');
+  const roleBtnAdmin = document.getElementById('roleBtnAdmin');
+  const submitBtnText = document.getElementById('submitBtnText');
+  const emailInput = document.getElementById('loginEmail');
+
+  function setRole(role) {
+    const isCustomer = (role === 'customer');
+    if (roleSelect) roleSelect.value = isCustomer ? 'customer' : 'admin';
+
+    if (roleBtnCustomer && roleBtnAdmin) {
+      if (isCustomer) {
+        roleBtnCustomer.classList.add('active');
+        roleBtnCustomer.style.background = 'rgba(197, 168, 128, 0.1)';
+        roleBtnCustomer.style.borderColor = 'var(--color-accent-gold)';
+        roleBtnCustomer.style.color = '#08162B';
+
+        roleBtnAdmin.classList.remove('active');
+        roleBtnAdmin.style.background = '#FFFFFF';
+        roleBtnAdmin.style.borderColor = 'var(--border-subtle)';
+        roleBtnAdmin.style.color = 'var(--color-text-muted)';
+      } else {
+        roleBtnAdmin.classList.add('active');
+        roleBtnAdmin.style.background = 'rgba(8, 22, 43, 0.08)';
+        roleBtnAdmin.style.borderColor = '#08162B';
+        roleBtnAdmin.style.color = '#08162B';
+
+        roleBtnCustomer.classList.remove('active');
+        roleBtnCustomer.style.background = '#FFFFFF';
+        roleBtnCustomer.style.borderColor = 'var(--border-subtle)';
+        roleBtnCustomer.style.color = 'var(--color-text-muted)';
+      }
+    }
+
+    if (submitBtnText) {
+      submitBtnText.textContent = isCustomer ? 'Sign In as Customer' : 'Sign In as Admin';
+    }
+
+    // Auto-update email only if currently empty or set to the opposite default
+    if (emailInput) {
+      const cur = emailInput.value.trim();
+      if (!cur || cur === 'voyager@stackly.com' || cur === 'admin@stackly.com') {
+        emailInput.value = isCustomer ? 'voyager@stackly.com' : 'admin@stackly.com';
+      }
+    }
+  }
+
+  if (roleBtnCustomer) {
+    roleBtnCustomer.addEventListener('click', () => setRole('customer'));
+  }
+  if (roleBtnAdmin) {
+    roleBtnAdmin.addEventListener('click', () => setRole('admin'));
+  }
+
+  // Handle native select changes if triggered
+  if (roleSelect) {
+    roleSelect.addEventListener('change', () => setRole(roleSelect.value));
+  }
+
+  // Handle Form Submission
+  loginForm.addEventListener('submit', (e) => {
+    if (e && typeof e.preventDefault === 'function') {
+      e.preventDefault();
+    }
+
+    let role = 'customer';
+    if (roleSelect && roleSelect.value) {
+      role = roleSelect.value;
+    } else if (roleBtnAdmin && roleBtnAdmin.classList.contains('active')) {
+      role = 'admin';
+    }
+
+    const email = emailInput ? emailInput.value.trim() : '';
+    performLogin(email, role);
+  });
+
+  // Handle One-Click Demo Buttons
+  document.querySelectorAll('.quick-demo-btn, [data-quick-demo]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const role = btn.dataset.role || 'customer';
+      const email = btn.dataset.email || (role === 'admin' ? 'admin@stackly.com' : 'voyager@stackly.com');
+      setRole(role);
+      if (emailInput) emailInput.value = email;
+      performLogin(email, role);
+    });
+  });
 }
 
 // Global Logout Handler

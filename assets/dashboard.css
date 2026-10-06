@@ -31,6 +31,42 @@ body.dashboard-body {
   min-height: 100vh;
 }
 
+/* Background Fixed when Mobile Sidebar or Modal is Open (Zero BG Scroll) */
+body.sidebar-open,
+html.sidebar-open {
+  overflow: hidden !important;
+  touch-action: none !important;
+  height: 100% !important;
+}
+
+body.sidebar-open .dashboard-main,
+body.sidebar-open .dashboard-content {
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Mobile Sidebar Backdrop Overlay */
+.dashboard-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 11, 22, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 95;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+}
+
+.dashboard-sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  touch-action: none !important;
+  overscroll-behavior: contain;
+}
+
 /* Sidebar Styling */
 .dashboard-sidebar {
   width: var(--sidebar-width);
@@ -46,6 +82,8 @@ body.dashboard-body {
   border-right: 1px solid rgba(197, 168, 128, 0.2);
   transition: transform var(--transition-smooth);
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sidebar-brand {
@@ -453,12 +491,34 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dash-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dash-fast-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.excursion-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 /* Tables in Dashboards */
 .dash-table-wrap {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .dash-table {
@@ -537,18 +597,21 @@ body.dashboard-body {
   inset: 0;
   background: rgba(8, 22, 43, 0.7);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 1200;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: all var(--transition-smooth);
 }
 
 .dash-modal-backdrop.show {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .dash-modal {
@@ -693,6 +756,11 @@ body.dashboard-body {
   .ticket-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .dash-chart-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -702,6 +770,31 @@ body.dashboard-body {
 
   .dashboard-content {
     padding: 16px;
+  }
+
+  .dash-panel {
+    padding: 18px 14px;
+  }
+
+  .cabin-amenities-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .countdown-timer-container {
+    gap: 8px !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .countdown-timer-container > div {
+    min-width: 54px !important;
+    padding: 8px 8px !important;
+    flex: 1 1 0;
+  }
+
+  .countdown-timer-container div[id^="countdown"] {
+    font-size: 1.6rem !important;
   }
 
   .topbar-search {
@@ -718,6 +811,89 @@ body.dashboard-body {
 
   .user-info {
     display: none;
+  }
+
+  /* Prevent Button and Action Overflows on Mobile */
+  .dash-hero-actions {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
+  }
+
+  .dash-hero-actions .btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .dash-fast-actions {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .dash-fast-actions .btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .dash-panel-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .dash-panel-header .dash-panel-actions,
+  .dash-panel-header .btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+
+  .excursion-filter-group {
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .excursion-filter-group .excursion-filter-btn {
+    flex: 1 1 calc(50% - 8px) !important;
+    width: auto !important;
+    padding: 8px 10px !important;
+    font-size: 0.78rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  .excursion-item-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+  }
+
+  .excursion-item-card .btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+
+  .concierge-chat-form {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .concierge-chat-form input {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .concierge-chat-form .btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
   }
 
   /* Dashboard Footer Centering in Mobile View */

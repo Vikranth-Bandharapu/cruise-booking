@@ -3,6 +3,39 @@
    Tested & optimized across 1920px, 1440px, 1024px, 768px, 480px, 360px
    ========================================================================== */
 
+/* Universal Responsive Safeguards & Overlay Protection */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Background Lock: When sidebar or drawer is open, prevent background scroll completely */
+body.sidebar-open,
+html.sidebar-open,
+body.drawer-open,
+html.drawer-open {
+  overflow: hidden !important;
+  touch-action: none !important;
+  height: 100% !important;
+}
+
+img, video, canvas, svg {
+  max-width: 100%;
+}
+
+/* Background Overlay Safety: Decorative backdrop divs must never trap pointer events */
+div[style*="position: absolute"][style*="inset: 0"]:not(.destination-tile-overlay) {
+  pointer-events: none;
+}
+
+.destination-tile-overlay {
+  pointer-events: auto !important;
+}
+
+.destination-tile-overlay * {
+  pointer-events: auto !important;
+}
+
 /* Large Desktop (1440px - 1920px+) */
 @media (min-width: 1440px) {
   :root {
@@ -68,6 +101,31 @@
 
   .feature-split-img img {
     height: 380px;
+  }
+
+  .blog-featured-split {
+    grid-template-columns: 1fr !important;
+  }
+
+  .blog-featured-split > div:first-child {
+    min-height: 260px !important;
+    height: 260px !important;
+  }
+
+  .blog-featured-split > div:last-child {
+    padding: 32px 24px !important;
+  }
+
+  .signup-card-split {
+    grid-template-columns: 1fr !important;
+  }
+
+  .signup-card-split > div:first-child {
+    padding: 36px 24px !important;
+  }
+
+  .signup-card-split > div:last-child {
+    padding: 36px 24px !important;
   }
 
   .section {
@@ -150,12 +208,40 @@
   }
 
   .grid-3,
-  .grid-4 {
-    grid-template-columns: 1fr;
+  .grid-4,
+  .dashboards-login-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hero Scaling for Mobile */
+  .hero-section,
+  section.section-dark[aria-label*="Hero"] {
+    padding-top: 100px !important;
+    padding-bottom: 50px !important;
+  }
+
+  /* Dashboard Grids on Mobile */
+  .dash-chart-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
 
   .destination-tile {
     height: 320px;
+  }
+
+  .dash-hero-actions,
+  .dash-fast-actions {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .dash-hero-actions .btn,
+  .dash-fast-actions .btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
   }
 
   .btn {
@@ -354,6 +440,46 @@
   .footer-newsletter {
     grid-column: span 1;
   }
+
+  /* Hero Scaling for Small Smartphones */
+  .hero-section,
+  section.section-dark[aria-label*="Hero"] {
+    padding-top: 85px !important;
+    padding-bottom: 35px !important;
+  }
+
+  .cabin-amenities-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .countdown-timer-container {
+    gap: 8px !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .countdown-timer-container > div {
+    min-width: 54px !important;
+    padding: 8px 8px !important;
+    flex: 1 1 0;
+  }
+
+  .countdown-timer-container div[id^="countdown"] {
+    font-size: 1.6rem !important;
+  }
+
+  .destination-tile {
+    height: 280px;
+  }
+
+  .destination-tile-overlay {
+    padding: 20px !important;
+  }
+
+  .destination-tile-overlay h3 {
+    font-size: 1.45rem !important;
+  }
 }
 
 /* Ultra Small Screens (Under 360px) */
@@ -370,6 +496,15 @@
   .btn-lg {
     padding: 14px 20px;
     font-size: 0.88rem;
+  }
+
+  .role-selector-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .role-tab-btn {
+    padding: 10px !important;
+    font-size: 0.85rem !important;
   }
 }
 

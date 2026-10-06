@@ -46,18 +46,27 @@ function initMobileDrawer() {
   const openDrawer = () => {
     drawer.classList.add('active');
     overlay.classList.add('active');
+    document.body.classList.add('drawer-open');
+    document.documentElement.classList.add('drawer-open');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
   };
 
   const closeDrawer = () => {
     drawer.classList.remove('active');
     overlay.classList.remove('active');
+    document.body.classList.remove('drawer-open');
+    document.documentElement.classList.remove('drawer-open');
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
   };
 
   toggleBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
+  overlay.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+  }, { passive: false });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && drawer.classList.contains('active')) {

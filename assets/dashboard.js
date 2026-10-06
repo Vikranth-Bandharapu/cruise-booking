@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDashboardModals();
   initVoyageCountdown();
   initQuickActions();
+  initDashboardCtaRedirects();
 });
 
 // Dashboard View Tab Configuration
@@ -97,11 +98,8 @@ function initDashboardViewTabs() {
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // 5. Close mobile sidebar if open
-    const sidebar = document.querySelector('.dashboard-sidebar');
-    if (sidebar && sidebar.classList.contains('open')) {
-      sidebar.classList.remove('open');
-    }
+    // 5. Close mobile sidebar and overlay if open, restore scroll
+    closeDashboardSidebar();
 
     // 6. Resize charts inside newly revealed sections
     setTimeout(() => {
@@ -164,25 +162,72 @@ function initDashboardViewTabs() {
   });
 }
 
+// Background Scroll Lock Helpers for Mobile Sidebar & Drawers
+function openDashboardSidebar() {
+  const sidebar = document.querySelector('.dashboard-sidebar');
+  const overlay = document.querySelector('.dashboard-sidebar-overlay');
+  if (sidebar) sidebar.classList.add('open');
+  if (overlay) overlay.classList.add('active');
+  document.body.classList.add('sidebar-open');
+  document.documentElement.classList.add('sidebar-open');
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+}
+
+function closeDashboardSidebar() {
+  const sidebar = document.querySelector('.dashboard-sidebar');
+  const overlay = document.querySelector('.dashboard-sidebar-overlay');
+  if (sidebar) sidebar.classList.remove('open');
+  if (overlay) overlay.classList.remove('active');
+  document.body.classList.remove('sidebar-open');
+  document.documentElement.classList.remove('sidebar-open');
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+}
+
 // Mobile Sidebar Toggle
 function initDashboardSidebar() {
   const toggleBtn = document.querySelector('.sidebar-toggle-btn');
   const sidebar = document.querySelector('.dashboard-sidebar');
+  const overlay = document.querySelector('.dashboard-sidebar-overlay');
 
   if (toggleBtn && sidebar) {
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar.classList.contains('open')) {
+        closeDashboardSidebar();
+      } else {
+        openDashboardSidebar();
+      }
     });
+
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        closeDashboardSidebar();
+      });
+
+      // Prevent background touch scrolling through overlay
+      overlay.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+    }
 
     // Close when clicking outside on mobile
     document.addEventListener('click', (e) => {
       if (
         window.innerWidth <= 1024 &&
+        sidebar.classList.contains('open') &&
         !sidebar.contains(e.target) &&
-        !toggleBtn.contains(e.target) &&
-        sidebar.classList.contains('open')
+        !toggleBtn.contains(e.target)
       ) {
-        sidebar.classList.remove('open');
+        closeDashboardSidebar();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+        closeDashboardSidebar();
       }
     });
   }
@@ -368,7 +413,10 @@ function initDashboardModals() {
       const modal = document.getElementById(modalId);
       if (modal) {
         modal.classList.add('show');
+        document.body.classList.add('sidebar-open');
+        document.documentElement.classList.add('sidebar-open');
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
       }
     });
   });
@@ -378,7 +426,10 @@ function initDashboardModals() {
       const modal = btn.closest('.dash-modal-backdrop');
       if (modal) {
         modal.classList.remove('show');
+        document.body.classList.remove('sidebar-open');
+        document.documentElement.classList.remove('sidebar-open');
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
       }
     });
   });
@@ -388,9 +439,18 @@ function initDashboardModals() {
     backdrop.addEventListener('click', (e) => {
       if (e.target === backdrop) {
         backdrop.classList.remove('show');
+        document.body.classList.remove('sidebar-open');
+        document.documentElement.classList.remove('sidebar-open');
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
       }
     });
+    // Prevent background scrolling when dragging/touching backdrop
+    backdrop.addEventListener('touchmove', (e) => {
+      if (e.target === backdrop) {
+        e.preventDefault();
+      }
+    }, { passive: false });
   });
 }
 
@@ -435,21 +495,31 @@ function initVoyageCountdown() {
   setInterval(updateClock, 1000);
 }
 
-// Quick Actions Handler
+// Quick Actions Handler (redirect to 404.html)
 function initQuickActions() {
   document.querySelectorAll('[data-quick-action]').forEach((el) => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      const action = el.dataset.quickAction;
-      if (action === 'export-manifest') {
-        window.showToast('success', 'Manifest Exported', 'Passenger manifest PDF generated and saved to your downloads folder (Demo).');
-      } else if (action === 'alert-fleet') {
-        window.showToast('info', 'Fleet Advisory', 'Weather bulletin transmitted to all vessels in Mediterranean Sector 4.');
-      } else if (action === 'download-pass') {
-        window.showToast('success', 'Boarding Pass Saved', 'Digital boarding wallet pass generated with barcode (Demo).');
-      } else if (action === 'request-butler') {
-        window.showToast('success', 'Butler Dispatched', 'Head Butler Jean-Luc notified. Refreshment service scheduled.');
+      window.location.href = '404.html';
+    });
+  });
+}
+
+// Dashboard CTA Buttons Handler (all dashboard action CTAs redirect to 404.html)
+function initDashboardCtaRedirects() {
+  document.querySelectorAll('.dashboard-content .btn, .dash-modal-footer .btn-primary').forEach((el) => {
+    if (el.classList.contains('excursion-filter-btn')) return;
+    if (el.hasAttribute('data-modal-close') && !el.classList.contains('btn-primary')) return;
+    if (el.hasAttribute('data-switch-tab') || el.hasAttribute('data-switch-view')) return;
+    if (el.classList.contains('sidebar-toggle-btn') || el.classList.contains('sidebar-link')) return;
+
+    el.addEventListener('click', (e) => {
+      const href = el.getAttribute('href');
+      if (href && href === '404.html') {
+        return; // standard anchor link will navigate naturally to 404.html
       }
+      e.preventDefault();
+      window.location.href = '404.html';
     });
   });
 }
