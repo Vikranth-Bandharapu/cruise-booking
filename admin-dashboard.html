@@ -21,6 +21,9 @@
 <body class="dashboard-body">
 
   <div class="dashboard-wrapper">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="dashboard-sidebar-overlay" id="adminSidebarOverlay" aria-hidden="true"></div>
+
     <!-- ==========================================================================
          ADMIN SIDEBAR (17 NAV ITEMS)
          ========================================================================== -->
@@ -72,13 +75,13 @@
         </div>
 
         <div class="topbar-right">
-          <button type="button" class="topbar-icon-btn" data-quick-action="alert-fleet" aria-label="Fleet Weather Advisories">
+          <a href="404.html" class="topbar-icon-btn" aria-label="Fleet Weather Advisories">
             <i class="fa-solid fa-cloud-bolt"></i>
             <span class="topbar-icon-badge"></span>
-          </button>
-          <button type="button" class="topbar-icon-btn" data-quick-action="export-manifest" aria-label="Export Master Manifest">
+          </a>
+          <a href="404.html" class="topbar-icon-btn" aria-label="Export Master Manifest">
             <i class="fa-solid fa-file-arrow-down"></i>
-          </button>
+          </a>
 
           <div class="user-profile-badge">
             <div class="user-avatar" id="adminUserAvatar">AD</div>
@@ -105,13 +108,13 @@
                 All four flagship vessels report operational green status. Current global sea conditions: Calm to Moderate (Beaufort Scale 2-3).
               </p>
             </div>
-            <div style="display: flex; gap: 10px;">
-              <button type="button" class="btn btn-outline-gold btn-sm" data-quick-action="alert-fleet">
+            <div class="dash-hero-actions">
+              <a href="404.html" class="btn btn-outline-gold btn-sm">
                 <i class="fa-solid fa-radio"></i> Broadcast Notice
-              </button>
-              <button type="button" class="btn btn-primary btn-sm" data-modal-open="newPackageModal">
+              </a>
+              <a href="404.html" class="btn btn-primary btn-sm">
                 <i class="fa-solid fa-plus"></i> Deploy New Package
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -242,7 +245,7 @@
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-chart-line text-gold"></i> 2026 Fleet Revenue Velocity ($ Millions)</h2>
             <div class="dash-panel-actions">
-              <button type="button" class="btn btn-outline-gold btn-sm" data-quick-action="export-manifest"><i class="fa-solid fa-download"></i> Financial CSV</button>
+              <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-download"></i> Financial CSV</a>
             </div>
           </div>
           <div style="height: 320px; position: relative;">
@@ -363,7 +366,7 @@
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-bed text-gold"></i> Cabin Tier Occupancy & Allocation</h2>
           </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
+          <div class="dash-chart-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
             <div style="height: 240px; position: relative;">
               <canvas id="adminOccupancyChart"></canvas>
             </div>
@@ -426,7 +429,7 @@
                   <td>Mediterranean</td>
                   <td>$5,850</td>
                   <td><span class="status-badge active">Active</span></td>
-                  <td><button type="button" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;" data-modal-open="viewPackageModal">Manage</button></td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">Manage</a></td>
                 </tr>
                 <tr data-status="sold-out">
                   <td><strong>#PKG-NOR-04</strong></td>
@@ -435,7 +438,7 @@
                   <td>Norway</td>
                   <td>$7,200</td>
                   <td><span class="status-badge confirmed">Sold Out</span></td>
-                  <td><button type="button" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;" data-modal-open="viewPackageModal">Manage</button></td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">Manage</a></td>
                 </tr>
                 <tr data-status="active">
                   <td><strong>#PKG-CAR-02</strong></td>
@@ -444,7 +447,7 @@
                   <td>Caribbean</td>
                   <td>$4,900</td>
                   <td><span class="status-badge active">Active</span></td>
-                  <td><button type="button" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;" data-modal-open="viewPackageModal">Manage</button></td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">Manage</a></td>
                 </tr>
                 <tr data-status="upcoming">
                   <td><strong>#PKG-GLO-01</strong></td>
@@ -453,7 +456,7 @@
                   <td>Worldwide</td>
                   <td>$68,000</td>
                   <td><span class="status-badge scheduled">Upcoming</span></td>
-                  <td><button type="button" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;" data-modal-open="viewPackageModal">Manage</button></td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">Manage</a></td>
                 </tr>
               </tbody>
             </table>
@@ -579,7 +582,7 @@
         <section id="sec-payments" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-receipt text-gold"></i> Recent Transactions & Wire Transfers</h2>
-            <button type="button" class="btn btn-outline-gold btn-sm" data-quick-action="export-manifest"><i class="fa-solid fa-file-invoice-dollar"></i> Export Ledger</button>
+            <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-file-invoice-dollar"></i> Export Ledger</a>
           </div>
 
           <div class="dash-table-wrap">
@@ -718,7 +721,7 @@
         <section id="sec-email" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-envelope-open-text text-gold"></i> Guest Communications & Email Dispatches</h2>
-            <button type="button" class="btn btn-primary btn-sm" data-modal-open="newEmailModal"><i class="fa-solid fa-pen"></i> New Guest Broadcast</button>
+            <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen"></i> New Guest Broadcast</a>
           </div>
 
           <div class="dash-table-wrap">
@@ -770,17 +773,17 @@
             <div style="background: #F8FAFC; border: 1px solid var(--dash-border); padding: 20px; border-radius: var(--radius-sm);">
               <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Q2 2026 ESG & Carbon Report</h3>
               <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 14px;">Emissions metrics, hybrid-electric battery lifecycle, and port shoreside power logs.</p>
-              <button type="button" class="btn btn-outline-gold btn-sm" data-quick-action="export-manifest"><i class="fa-solid fa-download"></i> Download PDF</button>
+              <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-download"></i> Download PDF</a>
             </div>
             <div style="background: #F8FAFC; border: 1px solid var(--dash-border); padding: 20px; border-radius: var(--radius-sm);">
               <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Solas Maritime Safety Survey</h3>
               <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 14px;">Annual Lloyd's Register survey report, lifeboat inspections, and fire drills.</p>
-              <button type="button" class="btn btn-outline-gold btn-sm" data-quick-action="export-manifest"><i class="fa-solid fa-download"></i> Download PDF</button>
+              <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-download"></i> Download PDF</a>
             </div>
             <div style="background: #F8FAFC; border: 1px solid var(--dash-border); padding: 20px; border-radius: var(--radius-sm);">
               <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Quarterly Revenue & Yield Ledger</h3>
               <p style="font-size: 0.85rem; color: var(--dash-text-muted); margin-bottom: 14px;">Detailed onboard revenue, beverage packages, spa receipts, and casino returns.</p>
-              <button type="button" class="btn btn-outline-gold btn-sm" data-quick-action="export-manifest"><i class="fa-solid fa-download"></i> Download PDF</button>
+              <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-download"></i> Download PDF</a>
             </div>
           </div>
         </section>
@@ -792,19 +795,19 @@
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> Operations Fast Actions</h2>
           </div>
-          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-            <button type="button" class="btn btn-primary" data-quick-action="export-manifest">
+          <div class="dash-fast-actions">
+            <a href="404.html" class="btn btn-primary">
               <i class="fa-solid fa-file-arrow-down"></i> Generate Master Manifest
-            </button>
-            <button type="button" class="btn btn-azure" data-quick-action="alert-fleet">
+            </a>
+            <a href="404.html" class="btn btn-azure">
               <i class="fa-solid fa-triangle-exclamation"></i> Issue Weather Warning
-            </button>
-            <button type="button" class="btn btn-outline-gold" data-modal-open="assignButlerModal">
+            </a>
+            <a href="404.html" class="btn btn-outline-gold">
               <i class="fa-solid fa-user-plus"></i> Reassign VIP Butler
-            </button>
-            <button type="button" class="btn btn-outline-gold" data-modal-open="newPackageModal">
+            </a>
+            <a href="404.html" class="btn btn-outline-gold">
               <i class="fa-solid fa-calendar-plus"></i> Schedule Maiden Voyage
-            </button>
+            </a>
           </div>
         </section>
 
@@ -840,17 +843,9 @@
         <!-- ==================================================================
              SECTION 20: OPERATIONAL FOOTER & STATUS BAR
              ================================================================== -->
-        <footer class="dash-panel" style="background: #08162B; color: #8C9CAE; border-color: rgba(197, 168, 128, 0.2); padding: 18px 24px;">
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.85rem;">
-            <div>
-              <span style="color: var(--dash-gold); font-weight: 700;">Aurelia Fleet Ops Console v4.8</span> • &copy; 2026 stackly all rights reserved
-            </div>
-            <div style="display: flex; gap: 20px; align-items: center;">
-              <a href="index.html" style="color: #BAC7D5;"><i class="fa-solid fa-arrow-left"></i> Public Website</a>
-              <a href="index.html" data-action="logout" style="color: #EF4444; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
-              </a>
-            </div>
+        <footer class="dash-panel" style="background: #08162B; color: #8C9CAE; border-color: rgba(197, 168, 128, 0.2); padding: 18px 24px; text-align: center;">
+          <div style="font-size: 0.85rem; text-align: center;">
+            <span style="color: var(--dash-gold); font-weight: 700;">Aurelia Fleet Ops Console v4.8</span> • &copy; 2026 stackly all rights reserved
           </div>
         </footer>
 
@@ -892,7 +887,7 @@
       </div>
       <div class="dash-modal-footer">
         <button type="button" class="btn btn-outline-gold btn-sm" data-modal-close>Close</button>
-        <button type="button" class="btn btn-primary btn-sm" data-modal-close onclick="window.showToast('success', 'Package Updated', 'Changes to package parameters saved successfully.');">Save Modifications</button>
+        <a href="404.html" class="btn btn-primary btn-sm">Save Modifications</a>
       </div>
     </div>
   </div>
@@ -920,7 +915,7 @@
       </div>
       <div class="dash-modal-footer">
         <button type="button" class="btn btn-outline-gold btn-sm" data-modal-close>Cancel</button>
-        <button type="button" class="btn btn-primary btn-sm" data-modal-close onclick="window.showToast('success', 'Butler Assigned', 'Jean-Luc Dupont dispatched to Owner Residence 8042.');">Confirm Assignment</button>
+        <a href="404.html" class="btn btn-primary btn-sm">Confirm Assignment</a>
       </div>
     </div>
   </div>
@@ -950,7 +945,7 @@
       </div>
       <div class="dash-modal-footer">
         <button type="button" class="btn btn-outline-gold btn-sm" data-modal-close>Cancel</button>
-        <button type="button" class="btn btn-primary btn-sm" data-modal-close onclick="window.showToast('success', 'Package Deployed', 'New itinerary deployed to booking catalog (Demo).');">Publish Package</button>
+        <a href="404.html" class="btn btn-primary btn-sm">Publish Package</a>
       </div>
     </div>
   </div>
@@ -982,7 +977,7 @@
       </div>
       <div class="dash-modal-footer">
         <button type="button" class="btn btn-outline-gold btn-sm" data-modal-close>Discard</button>
-        <button type="button" class="btn btn-primary btn-sm" data-modal-close onclick="window.showToast('success', 'Broadcast Transmitted', 'Email sent to 294 passenger inboxes.');">Transmit Broadcast</button>
+        <a href="404.html" class="btn btn-primary btn-sm">Transmit Broadcast</a>
       </div>
     </div>
   </div>

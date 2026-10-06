@@ -71,7 +71,6 @@
     <div class="mobile-drawer-actions">
       <a href="login.html" class="btn btn-outline-white btn-sm">Sign In</a>
       <a href="signup.html" class="btn btn-primary btn-sm">Create Account</a>
-      <a href="404.html" class="btn btn-azure btn-sm">Explore Voyages</a>
     </div>
   </aside>
 
@@ -80,8 +79,8 @@
          SECTION 1: TRAVEL JOURNAL HERO
          ========================================================================== -->
     <section class="section-dark" style="position: relative; padding: 160px 0 90px; overflow: hidden;" aria-label="Journal Hero">
-      <div style="position: absolute; inset: 0; background: url('assets/blog-fjords.webp') center/cover no-repeat; filter: brightness(0.35); z-index: 1;"></div>
-      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 22, 43, 0.6) 0%, rgba(8, 22, 43, 0.95) 100%); z-index: 2;"></div>
+      <div style="position: absolute; inset: 0; background: url('assets/blog-fjords.webp') center/cover no-repeat; filter: brightness(0.35); z-index: 1; pointer-events: none;"></div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 22, 43, 0.6) 0%, rgba(8, 22, 43, 0.95) 100%); z-index: 2; pointer-events: none;"></div>
 
       <div class="container" style="position: relative; z-index: 3; text-align: center;">
         <span class="eyebrow hero-badge" data-aos="fade-up">The Aurelia Gazette</span>
@@ -103,7 +102,7 @@
          ========================================================================== -->
     <section class="section" aria-label="Featured Article">
       <div class="container">
-        <div class="cruise-card" style="display: grid; grid-template-columns: 1.2fr 1fr; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);" data-aos="fade-up">
+        <div class="cruise-card blog-featured-split" style="display: grid; grid-template-columns: 1.2fr 1fr; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);" data-aos="fade-up">
           <div style="height: 100%; min-height: 420px; overflow: hidden; position: relative;">
             <img src="assets/blog-fjords.webp" alt="Norwegian mountain peaks and deep sea inlet" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
             <div class="cruise-badge" style="top: 24px; left: 24px;">Lead Story • Scandinavia</div>

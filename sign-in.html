@@ -17,108 +17,92 @@
 </head>
 <body style="background-color: var(--color-bg-sand); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
 
-  <!-- Site Header -->
-  <header class="site-header" style="background: rgba(8, 22, 43, 0.95);">
-    <div class="container header-container">
-      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
-        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
-      </a>
-
-      <!-- Desktop Navigation -->
-      <nav class="main-nav" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
-
-      <!-- Desktop Auth -->
-      <div class="header-actions">
-        <a href="login.html" class="header-auth-link active">Sign In</a>
-        <a href="signup.html" class="header-auth-link signup">Sign Up</a>
+  <!-- Login Main Content: Single Form with 2 Roles (No Header) -->
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+    <div style="width: 100%; max-width: 480px;">
+      
+      <!-- Go Back Navigation -->
+      <div style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+        <button type="button" onclick="if(window.history.length > 1) { history.back(); } else { window.location.href='index.html'; }" class="go-back-btn" aria-label="Go Back">
+          <i class="fa-solid fa-arrow-left"></i> Go Back
+        </button>
+        <a href="index.html" style="font-size: 0.85rem; color: var(--color-text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
       </div>
 
-      <!-- Mobile Hamburger Toggle -->
-      <button class="mobile-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mobile Slide-out Navigation Drawer -->
-  <div class="mobile-drawer-overlay"></div>
-  <aside class="mobile-drawer" aria-label="Mobile Navigation Drawer">
-    <div class="mobile-drawer-header">
-      <div class="brand-logo">
-        <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img">
-      </div>
-      <button class="drawer-close-btn" aria-label="Close Mobile Menu"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-
-    <ul class="mobile-nav-list">
-      <li><a href="index.html" class="mobile-nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a></li>
-      <li><a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a></li>
-      <li><a href="about.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a></li>
-      <li><a href="blog.html" class="mobile-nav-link"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a></li>
-      <li><a href="contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a></li>
-    </ul>
-
-    <div class="mobile-drawer-actions">
-      <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
-      <a href="signup.html" class="btn btn-outline-white btn-sm">Create Account</a>
-    </div>
-  </aside>
-
-  <!-- Login Main Card -->
-  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 120px 20px 60px;">
-    <div style="width: 100%; max-width: 480px; opacity: 1; visibility: visible;">
-      <!-- Card Container -->
-      <div class="cruise-card" style="padding: 40px; border-radius: var(--radius-lg); background: #FFFFFF; box-shadow: var(--shadow-lg); opacity: 1; visibility: visible;">
-        <div style="text-align: center; margin-bottom: 28px;">
-          <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(197, 168, 128, 0.12); color: var(--color-accent-gold); display: inline-flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 14px; border: 1px solid var(--border-gold);">
-            <i class="fa-solid fa-anchor"></i>
-          </div>
-          <h1 style="font-size: 1.85rem; margin-bottom: 6px;">Sign In to Aurelia</h1>
+      <!-- Single Card Container -->
+      <div class="cruise-card" style="padding: 38px 32px; border-radius: var(--radius-lg); background: #FFFFFF; box-shadow: var(--shadow-lg); border-top: 4px solid var(--color-accent-gold);">
+        
+        <div style="text-align: center; margin-bottom: 24px;">
+          <a href="index.html" aria-label="Return to Homepage" style="display: inline-block; margin-bottom: 14px;">
+            <img src="assets/logo.webp" alt="Stackly Logo" style="height: 42px; width: auto;">
+          </a>
+          <h1 style="font-size: 1.85rem; margin-bottom: 6px; color: #08162B;">Sign In to Aurelia</h1>
           <p style="font-size: 0.92rem; color: var(--color-text-muted);">
             Access your personal voyage itinerary or operations command.
           </p>
         </div>
 
-        <!-- Login Form -->
+        <!-- ONLY ONE LOGIN FORM -->
         <form id="loginForm" novalidate>
+          
+          <!-- 2 ROLES SELECTOR -->
+          <div class="form-group" style="margin-bottom: 18px;">
+            <label class="form-label" style="margin-bottom: 8px; font-weight: 600;">Select Role (2 Roles Available) <span class="required">*</span></label>
+            <div class="role-selector-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <button type="button" class="role-tab-btn active" data-role="customer" id="roleBtnCustomer" style="padding: 12px 14px; border: 1.5px solid var(--color-accent-gold); border-radius: var(--radius-sm); background: rgba(197, 168, 128, 0.1); color: #08162B; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;">
+                <i class="fa-solid fa-user" style="color: var(--color-accent-gold);"></i>
+                <span>Customer</span>
+              </button>
+              <button type="button" class="role-tab-btn" data-role="admin" id="roleBtnAdmin" style="padding: 12px 14px; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-sm); background: #FFFFFF; color: var(--color-text-muted); font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Admin</span>
+              </button>
+            </div>
+            <!-- Hidden native select for standard form inspection -->
+            <select id="loginRole" name="role" class="form-control" style="display: none;" aria-label="Select Role">
+              <option value="customer" selected>Customer</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
           <!-- Email Field -->
-          <div class="form-group">
+          <div class="form-group" style="margin-bottom: 14px;">
             <label for="loginEmail" class="form-label">Email Address <span class="required">*</span></label>
-            <input type="text" id="loginEmail" class="form-control" placeholder="Enter your email" required autocomplete="username">
+            <input type="text" id="loginEmail" name="email" class="form-control" placeholder="Enter your email" value="voyager@stackly.com" required autocomplete="username">
             <div class="error-feedback"></div>
           </div>
 
           <!-- Password Field -->
-          <div class="form-group">
+          <div class="form-group" style="margin-bottom: 18px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
               <label for="loginPassword" class="form-label" style="margin-bottom: 0;">Password <span class="required">*</span></label>
-              <a href="404.html" style="font-size: 0.84rem; color: var(--color-accent-azure); text-decoration: none; font-weight: 500;">Forgot Password?</a>
+              <a href="404.html" style="font-size: 0.82rem; color: var(--color-accent-azure); text-decoration: none;">Forgot Password?</a>
             </div>
-            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+            <input type="password" id="loginPassword" name="password" class="form-control" placeholder="Enter your password" value="voyage2026" required autocomplete="current-password">
             <div class="error-feedback"></div>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 14px;">
-            <i class="fa-solid fa-right-to-bracket"></i> Sign In
+          <!-- Submit Button -->
+          <button type="submit" id="loginSubmitBtn" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 6px; justify-content: center; gap: 8px;">
+            <i class="fa-solid fa-right-to-bracket"></i> <span id="submitBtnText">Sign In as Customer</span>
           </button>
         </form>
 
-        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); text-align: center; font-size: 0.88rem; color: var(--color-text-muted);">
+        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle); text-align: center; font-size: 0.88rem; color: var(--color-text-muted);">
           Do not possess an account yet? <a href="signup.html" style="color: var(--color-accent-azure); font-weight: 600;">Create Registration</a>
         </div>
       </div>
 
-      <!-- Demonstration Security Disclosure -->
-      <div style="text-align: center; margin-top: 20px; font-size: 0.78rem; color: #8C9CAE;">
-        <i class="fa-solid fa-shield-halved"></i> Demonstration Mode: Passwords are validated locally and never transmitted or persisted in storage.
+      <!-- Navigation & Security Disclosure -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 0.85rem; color: var(--color-text-muted); flex-wrap: wrap; gap: 8px;">
+        <button type="button" onclick="if(window.history.length > 1) { history.back(); } else { window.location.href='index.html'; }" style="background: none; border: none; padding: 0; color: var(--color-accent-gold); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.85rem;" aria-label="Go Back">
+          <i class="fa-solid fa-arrow-left"></i> Go Back
+        </button>
+        <span>
+          <i class="fa-solid fa-shield-halved"></i> Secure Local Session
+        </span>
       </div>
     </div>
   </main>

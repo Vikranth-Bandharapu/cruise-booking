@@ -21,6 +21,8 @@
 <body class="dashboard-body" style="background-color: #FAF8F5;">
 
   <div class="dashboard-wrapper">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="dashboard-sidebar-overlay" id="custSidebarOverlay" aria-hidden="true"></div>
     <!-- ==========================================================================
          CUSTOMER SIDEBAR (16 NAV ITEMS)
          ========================================================================== -->
@@ -81,7 +83,7 @@
             </div>
 
             <!-- Countdown Timer Blocks -->
-            <div style="display: flex; gap: 14px; text-align: center;">
+            <div class="countdown-timer-container" style="display: flex; gap: 14px; text-align: center;">
               <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-gold); padding: 12px 16px; border-radius: var(--radius-sm); min-width: 68px;">
                 <div id="countdownDays" style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--color-accent-gold); line-height: 1;">24</div>
                 <div style="font-size: 0.68rem; text-transform: uppercase; color: #BAC7D5; margin-top: 4px;">Days</div>
@@ -186,9 +188,9 @@
                   <div style="font-weight: 700; color: var(--dash-primary);">Aurelia Sovereign</div>
                 </div>
               </div>
-              <button type="button" class="btn btn-outline-gold btn-sm" data-modal-open="boardingPassModal">
+              <a href="404.html" class="btn btn-outline-gold btn-sm">
                 <i class="fa-solid fa-file-pdf"></i> View Voyage Dossier
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -296,7 +298,7 @@
         <section id="cust-boarding" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-ticket text-gold"></i> Digital Boarding Card</h2>
-            <button type="button" class="btn btn-primary btn-sm" data-quick-action="download-pass"><i class="fa-solid fa-download"></i> Save to Wallet</button>
+            <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-download"></i> Save to Wallet</a>
           </div>
 
           <!-- Boarding Pass Graphic -->
@@ -349,7 +351,7 @@
         <section id="cust-cabin" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-bed text-gold"></i> Your Private Sanctuary: Suite 8042</h2>
-            <button type="button" class="btn btn-outline-gold btn-sm" data-modal-open="requestServiceModal"><i class="fa-solid fa-bell"></i> Request Stateroom Service</button>
+            <a href="404.html" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-bell"></i> Request Stateroom Service</a>
           </div>
 
           <div class="feature-split">
@@ -362,7 +364,7 @@
               <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 16px;">
                 Situated aft-starboard on Deck 8, Suite 8042 features an expansive private teak veranda with cushioned daybeds, walk-in dressing salon, Carrara marble bath with whirlpool tub, and full Illy espresso bar.
               </p>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.85rem; color: var(--dash-primary); font-weight: 600;">
+              <div class="cabin-amenities-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.85rem; color: var(--dash-primary); font-weight: 600;">
                 <div><i class="fa-solid fa-check text-gold"></i> Dedicated Butler: Jean-Luc</div>
                 <div><i class="fa-solid fa-check text-gold"></i> Custom Hypoallergenic Bedding</div>
                 <div><i class="fa-solid fa-check text-gold"></i> Bulgari Bath Amenities</div>
@@ -378,7 +380,7 @@
         <section id="cust-companions" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-user-group text-gold"></i> Registered Travel Companions</h2>
-            <button type="button" class="btn btn-primary btn-sm" onclick="window.showToast('info', 'Companion Invited', 'Invitation sent to add guest passport credentials (Demo).');"><i class="fa-solid fa-user-plus"></i> Add Companion</button>
+            <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-plus"></i> Add Companion</a>
           </div>
 
           <div class="grid-2">
@@ -437,7 +439,7 @@
         <section id="cust-excursions" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-person-hiking text-gold"></i> Booked & Curated Shore Excursions</h2>
-            <div style="display: flex; gap: 8px;">
+            <div class="excursion-filter-group">
               <button type="button" class="btn btn-outline-gold btn-sm excursion-filter-btn active" data-category="all">All</button>
               <button type="button" class="btn btn-outline-gold btn-sm excursion-filter-btn" data-category="culinary">Culinary</button>
               <button type="button" class="btn btn-outline-gold btn-sm excursion-filter-btn" data-category="culture">Culture</button>
@@ -452,7 +454,7 @@
                 <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Private Chianti Vineyard Helicopter Flight</h3>
                 <p style="font-size: 0.85rem; color: var(--dash-text-muted);">Port: Livorno • July 15 • 09:30 – 16:00 (Includes cellar degustation)</p>
               </div>
-              <button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('info', 'Excursion Details', 'Helicopter departure coordinates confirmed at Livorno pad.');">View Voucher</button>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">View Voucher</a>
             </div>
 
             <div class="excursion-item-card" data-category="culture" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
@@ -461,7 +463,7 @@
                 <h3 style="font-size: 1.1rem; margin-bottom: 4px;">After-Hours Uffizi Gallery & Vasari Corridor</h3>
                 <p style="font-size: 0.85rem; color: var(--dash-text-muted);">Port: Livorno • July 15 • 18:00 – 21:00 (Private Art Historian)</p>
               </div>
-              <button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('info', 'Excursion Details', 'Exclusive museum entrance credentials prepared.');">View Voucher</button>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">View Voucher</a>
             </div>
 
             <div class="excursion-item-card" data-category="adventure" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
@@ -470,7 +472,7 @@
                 <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Private Riva Yacht Charter along Portofino Coast</h3>
                 <p style="font-size: 0.85rem; color: var(--dash-text-muted);">Port: Portofino • July 14 • 14:00 – 18:00 (Skipper & Prosecco)</p>
               </div>
-              <button type="button" class="btn btn-primary btn-sm" onclick="window.showToast('success', 'Charter Requested', 'Concierge Jean-Luc will finalize Riva charter reservation.');">Book with Credit</button>
+              <a href="404.html" class="btn btn-primary btn-sm">Book with Credit</a>
             </div>
           </div>
         </section>
@@ -560,7 +562,7 @@
             <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
               <div style="font-weight: 700; margin-bottom: 4px;"><i class="fa-solid fa-tags text-gold"></i> e-Luggage Tags</div>
               <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin-bottom: 10px;">Color-coded gold tags for direct delivery to Suite 8042.</p>
-              <button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('success', 'Tags Printed', 'Digital luggage tags downloaded to printable PDF.');">Download Tags</button>
+              <a href="404.html" class="btn btn-outline-gold btn-sm">Download Tags</a>
             </div>
 
             <div style="padding: 16px; background: #F8FAFC; border: 1px solid var(--dash-border); border-radius: var(--radius-sm);">
@@ -577,7 +579,7 @@
         <section id="cust-requests" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-wand-magic text-gold"></i> Special Requests & In-Suite Preferences</h2>
-            <button type="button" class="btn btn-primary btn-sm" data-modal-open="requestServiceModal"><i class="fa-solid fa-plus"></i> New Request</button>
+            <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> New Request</a>
           </div>
 
           <div class="grid-3">
@@ -652,8 +654,8 @@
             </div>
           </div>
 
-          <form onsubmit="event.preventDefault(); window.showToast('success', 'Message Sent', 'Transmitted to Butler Jean-Luc on bridge intercom.'); this.reset();" style="display: flex; gap: 10px; margin-top: 10px;">
-            <input type="text" placeholder="Type a message or instruction for your butler..." required style="flex-grow: 1; padding: 12px 16px; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); font-size: 0.9rem;">
+          <form class="concierge-chat-form" onsubmit="event.preventDefault(); window.location.href='404.html';" style="display: flex; gap: 10px; margin-top: 10px;">
+            <input type="text" placeholder="Type a message or instruction for your butler..." required style="flex-grow: 1; min-width: 0; padding: 12px 16px; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); font-size: 0.9rem;">
             <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Send</button>
           </form>
         </section>
@@ -681,13 +683,13 @@
                   <td><strong>Welcome Aboard: Private Monaco Chauffeur & Embarkation Guide</strong></td>
                   <td>Aurelia Concierge Directorate</td>
                   <td>Yesterday</td>
-                  <td><button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('info', 'Opening Email', 'Rendering private embarkation memo.');">Read</button></td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm">Read</a></td>
                 </tr>
                 <tr>
                   <td><strong>Exclusive Shore Invitation: Vintage Chianti Helicopter Tour</strong></td>
                   <td>Executive Shore Excursion Team</td>
                   <td>June 12, 2026</td>
-                  <td><button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('info', 'Opening Email', 'Rendering excursion invitation memo.');">Read</button></td>
+                  <td><a href="404.html" class="btn btn-outline-gold btn-sm">Read</a></td>
                 </tr>
               </tbody>
             </table>
@@ -765,7 +767,7 @@
         <section id="cust-profile" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-user-gear text-gold"></i> Voyager Profile & Privacy Preferences</h2>
-            <button type="button" class="btn btn-outline-gold btn-sm" onclick="window.showToast('success', 'Preferences Saved', 'Voyager profile and notification preferences updated.');">Save Changes</button>
+            <a href="404.html" class="btn btn-outline-gold btn-sm">Save Changes</a>
           </div>
 
           <div class="grid-2">
@@ -793,17 +795,9 @@
         </section>
 
         <!-- Voyager Portal Footer -->
-        <footer class="dash-panel" style="background: #091C36; color: #BAC7D5; border-color: rgba(197, 168, 128, 0.2); padding: 18px 24px;">
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.85rem;">
-            <div>
-              &copy; 2026 stackly all rights reserved • Voyager Portal Session Active (Lady Eleanor Vance)
-            </div>
-            <div style="display: flex; gap: 20px; align-items: center;">
-              <a href="index.html" style="color: #FFFFFF;"><i class="fa-solid fa-house"></i> Public Website</a>
-              <a href="index.html" data-action="logout" style="color: #EF4444; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
-              </a>
-            </div>
+        <footer class="dash-panel" style="background: #091C36; color: #BAC7D5; border-color: rgba(197, 168, 128, 0.2); padding: 18px 24px; text-align: center;">
+          <div style="font-size: 0.85rem; text-align: center;">
+            &copy; 2026 stackly all rights reserved • Voyager Portal Session Active (Lady Eleanor Vance)
           </div>
         </footer>
 
@@ -838,7 +832,7 @@
       </div>
       <div class="dash-modal-footer">
         <button type="button" class="btn btn-outline-gold btn-sm" data-modal-close>Close</button>
-        <button type="button" class="btn btn-primary btn-sm" data-modal-close onclick="window.showToast('success', 'Saved to Wallet', 'Boarding pass saved to Apple / Google Wallet format (Demo).');">Save to Phone</button>
+        <a href="404.html" class="btn btn-primary btn-sm">Save to Phone</a>
       </div>
     </div>
   </div>
@@ -868,7 +862,7 @@
       </div>
       <div class="dash-modal-footer">
         <button type="button" class="btn btn-outline-gold btn-sm" data-modal-close>Cancel</button>
-        <button type="button" class="btn btn-primary btn-sm" data-modal-close onclick="window.showToast('success', 'Request Dispatched', 'Your stateroom request has been transmitted to Butler Jean-Luc.');">Transmit Request</button>
+        <a href="404.html" class="btn btn-primary btn-sm">Transmit Request</a>
       </div>
     </div>
   </div>

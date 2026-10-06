@@ -70,16 +70,25 @@
     <div class="mobile-drawer-actions">
       <a href="login.html" class="btn btn-outline-white btn-sm">Sign In</a>
       <a href="signup.html" class="btn btn-primary btn-sm">Create Account</a>
-      <a href="404.html" class="btn btn-azure btn-sm">Explore Voyages</a>
     </div>
   </aside>
 
   <main id="main-content" style="padding-top: 120px; padding-bottom: 80px;">
     <div class="container container-narrow">
-      <div class="cruise-card" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); display: grid; grid-template-columns: 1fr 1.2fr; opacity: 1; visibility: visible;">
+      <!-- Go Back Navigation -->
+      <div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+        <button type="button" onclick="if(window.history.length > 1) { history.back(); } else { window.location.href='index.html'; }" class="go-back-btn" aria-label="Go Back">
+          <i class="fa-solid fa-arrow-left"></i> Go Back
+        </button>
+        <a href="index.html" style="font-size: 0.88rem; color: var(--color-text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+          <i class="fa-solid fa-house"></i> Return to Homepage
+        </a>
+      </div>
+
+      <div class="cruise-card signup-card-split" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); display: grid; grid-template-columns: 1fr 1.2fr; opacity: 1; visibility: visible;">
         <!-- Visual Sidebar -->
         <div style="background: var(--color-primary); color: #FFFFFF; padding: 48px 36px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
-          <div style="position: absolute; inset: 0; background: url('assets/cabin-suite.webp') center/cover no-repeat; opacity: 0.15;"></div>
+          <div style="position: absolute; inset: 0; background: url('assets/cabin-suite.webp') center/cover no-repeat; opacity: 0.15; pointer-events: none;"></div>
           
           <div style="position: relative; z-index: 2;">
             <span class="eyebrow text-gold" style="margin-bottom: 8px;">Voyager Registry</span>
@@ -161,6 +170,15 @@
               <i class="fa-solid fa-user-plus"></i> Create Account
             </button>
           </form>
+
+          <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: var(--color-text-muted); flex-wrap: wrap; gap: 10px;">
+            <button type="button" onclick="if(window.history.length > 1) { history.back(); } else { window.location.href='index.html'; }" style="background: none; border: none; padding: 0; color: var(--color-accent-azure); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.88rem;" aria-label="Go Back">
+              <i class="fa-solid fa-arrow-left"></i> Go Back
+            </button>
+            <span>
+              Already registered? <a href="login.html" style="color: var(--color-accent-gold); font-weight: 600; text-decoration: none;">Sign In</a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
