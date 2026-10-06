@@ -116,13 +116,7 @@ function initLoginForm() {
       submitBtnText.textContent = isCustomer ? 'Sign In as Customer' : 'Sign In as Admin';
     }
 
-    // Auto-update email only if currently empty or set to the opposite default
-    if (emailInput) {
-      const cur = emailInput.value.trim();
-      if (!cur || cur === 'voyager@stackly.com' || cur === 'admin@stackly.com') {
-        emailInput.value = isCustomer ? 'voyager@stackly.com' : 'admin@stackly.com';
-      }
-    }
+    
   }
 
   if (roleBtnCustomer) {
@@ -139,9 +133,8 @@ function initLoginForm() {
 
   // Handle Form Submission
   loginForm.addEventListener('submit', (e) => {
-    if (e && typeof e.preventDefault === 'function') {
-      e.preventDefault();
-    }
+    if (!loginForm.checkValidity()) { return; } // Allow native browser validation
+    if (e && typeof e.preventDefault === 'function') { e.preventDefault(); }
 
     let role = 'customer';
     if (roleSelect && roleSelect.value) {
@@ -206,3 +199,5 @@ function clearErrors(form) {
     el.classList.remove('active');
   });
 }
+
+

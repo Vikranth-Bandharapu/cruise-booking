@@ -9,6 +9,7 @@ function startMain() {
   initAccordions();
   initTabs();
   initNewsletterForms();
+  initGenericDummyForms();
 }
 
 if (document.readyState === 'loading') {
@@ -186,6 +187,51 @@ window.showToast = function (type, title, message) {
 };
 
 // Footer newsletter subscriptions with validation and 404 redirection
+function initGenericDummyForms() {
+  document.querySelectorAll('form[action="404.html"]:not(.footer-newsletter-form)').forEach((form) => {
+    form.setAttribute('novalidate', 'true');
+    const input = form.querySelector('input[type="text"], input[type="search"]');
+    if (!input) {
+      // If no text input, just redirect on submit
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.location.href = '404.html';
+      });
+      return;
+    }
+
+    input.addEventListener('input', () => {
+      input.style.borderColor = '';
+      input.style.boxShadow = '';
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = input.value.trim();
+
+      if (!val) {
+        input.style.borderColor = '#EF4444';
+        input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.25)';
+        input.focus();
+        if (typeof window.showToast === 'function') {
+          window.showToast('error', 'Input Required', 'Please enter a value before proceeding.');
+        }
+        return;
+      }
+
+      input.style.borderColor = '#22C55E';
+      input.style.boxShadow = '0 0 0 3px rgba(34, 197, 94, 0.25)';
+      if (typeof window.showToast === 'function') {
+        window.showToast('success', 'Success', 'Processing request...');
+      }
+
+      setTimeout(() => {
+        window.location.href = '404.html';
+      }, 400);
+    });
+  });
+}
+
 function initNewsletterForms() {
   document.querySelectorAll('.footer-newsletter-form').forEach((form) => {
     form.setAttribute('novalidate', 'true');
@@ -228,3 +274,4 @@ function initNewsletterForms() {
     });
   });
 }
+

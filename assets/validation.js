@@ -175,15 +175,7 @@ function initContactValidation() {
       return;
     }
 
-    // Notice: Client-side demo disclosure
-    window.showToast(
-      'success',
-      'Inquiry Logged (Demo Mode)',
-      `Thank you, ${nameInput.value.trim()}. Your demo inquiry for ${destinationSelect.value} has been recorded in the demonstration portal.`
-    );
-
-    contactForm.reset();
-    clearAllValidationStates(contactForm);
+    window.location.href = '404.html';
   });
 }
 
@@ -305,3 +297,4 @@ function clearAllValidationStates(form) {
     el.classList.remove('active');
   });
 }
+
