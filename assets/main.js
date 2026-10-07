@@ -219,13 +219,7 @@ function initGenericDummyForms() {
         return;
       }
 
-      input.style.borderColor = '#22C55E';
-      input.style.boxShadow = '0 0 0 3px rgba(34, 197, 94, 0.25)';
-      if (typeof window.showToast === 'function') {
-        window.showToast('success', 'Success', 'Processing request...');
-      }
-
-      setTimeout(() => { window.location.href = '404.html'; }, 1000);
+      window.location.href = '404.html';
     });
   });
 }
@@ -270,5 +264,7 @@ function initNewsletterForms() {
     });
   });
 }
+
+
 
 
