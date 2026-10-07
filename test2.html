@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form class="concierge-chat-form" novalidate onsubmit="var v = this.querySelector('input').value.trim(); if(!v) { alert('Input Required'); return false; } window.location.href='404.html'; return false;" style="display: flex; gap: 10px; margin-top: 10px;">
+  <input type="text" placeholder="Type a message or instruction for your butler..." required style="flex-grow: 1; min-width: 0; padding: 12px 16px; border: 1px solid red; border-radius: 4px; font-size: 0.9rem;">
+  <button type="submit" id="btn" class="btn btn-primary btn-sm">Send</button>
+</form>
+<script>
+  window.onload = function() {
+    console.log('Clicking button in 1s...');
+    setTimeout(function() { document.getElementById('btn').click(); }, 1000);
+  };
+</script>
+</body>
+</html>
