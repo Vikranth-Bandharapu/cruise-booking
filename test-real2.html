@@ -658,22 +658,10 @@
               </p>
             </div>
           </div>
-                                                                                <div class="concierge-chat-form" style="display: flex; gap: 10px; margin-top: 10px;">
-            <input type="text" id="chatInput" placeholder="Type a message or instruction for your butler..." style="flex-grow: 1; min-width: 0; padding: 12px 16px; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); font-size: 0.9rem;">
-            <button type="button" class="btn btn-primary btn-sm chat-send-btn" onclick="event.stopImmediatePropagation(); 
-              var input = document.getElementById('chatInput');
-              if (!input.value || input.value.trim() === '') {
-                input.style.borderColor = '#EF4444';
-                if(window.showToast) {
-                  window.showToast('error', 'Input Required', 'Please enter a message before sending.');
-                } else {
-                  alert('Please enter a message before sending.');
-                }
-              } else {
-                window.location.href = '404.html';
-              }
-            "><i class="fa-solid fa-paper-plane"></i> Send</button>
-          </div>
+                              <form id="the-chat-form" style="display: flex; gap: 10px; margin-top: 10px;">
+              <input type="text" placeholder="Type a message or instruction for your butler..." required style="flex-grow: 1; min-width: 0; padding: 12px 16px; border: 1px solid var(--dash-border); border-radius: var(--radius-sm); font-size: 0.9rem;">
+              <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Send</button>
+            </form>
         </section>
 
         <!-- ==================================================================
@@ -890,15 +878,46 @@
   <script src="assets/main.js"></script>
   <script src="assets/auth.js"></script>
   <script src="assets/dashboard.js"></script>
-  
-</body>
+  <!-- 100% BULLETPROOF CHAT FORM HANDLER -->
+  <script>
+    setTimeout(function() {
+      var form = document.getElementById('the-chat-form');
+      if (form) {
+        form.setAttribute('novalidate', 'true');
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var input = form.querySelector('input');
+          var v = input ? input.value.trim() : '';
+          
+          if (!v) {
+            if (input) {
+              input.style.borderColor = '#EF4444';
+              input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.25)';
+            }
+            if (typeof window.showToast === 'function') {
+              window.showToast('error', 'Input Required', 'Please enter a message before sending.');
+            } else {
+              alert('Please enter a message before sending.');
+            }
+            return false;
+          }
+          
+          window.location.href = '404.html';
+          return false;
+        });
+        
+        var input2 = form.querySelector('input');
+        if (input2) {
+          input2.addEventListener('input', function() {
+            input2.style.borderColor = '';
+            input2.style.boxShadow = '';
+          });
+        }
+      }
+    }, 100);
+  </script>
+<script>setTimeout(() => { document.querySelector("#the-chat-form button").click(); setTimeout(() => { require("fs").writeFileSync("result.txt", "Still on page: " + window.location.href); }, 1000); }, 1000);</script></body>
 </html>
-
-
-
-
-
-
 
 
 

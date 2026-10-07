@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form class="concierge-chat-form" novalidate onsubmit="
+  event.preventDefault();
+  var input = this.querySelector('input');
+  var v = input.value.trim();
+  if(!v) { 
+    input.style.borderColor = '#EF4444';
+    if(typeof window.showToast === 'function') {
+      window.showToast('error', 'Input Required', 'Please enter a message before sending.');
+    } else {
+      alert('Input Required: Please enter a message.');
+    }
+    return false; 
+  } 
+  window.location.href = '404.html'; 
+  return false;
+">
+  <input type="text" value="">
+  <button type="submit" id="btn">Send</button>
+</form>
+<script>
+  window.onload = function() {
+    document.getElementById('btn').click();
+  };
+</script>
+</body>
+</html>
