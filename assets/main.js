@@ -266,5 +266,3 @@ function initNewsletterForms() {
 }
 
 
-
-
