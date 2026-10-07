@@ -772,7 +772,7 @@
         <section id="cust-profile" class="dash-panel">
           <div class="dash-panel-header">
             <h2 class="dash-panel-title"><i class="fa-solid fa-user-gear text-gold"></i> Voyager Profile & Privacy Preferences</h2>
-            <a href="404.html" class="btn btn-outline-gold btn-sm">Save Changes</a>
+            <button type="button" class="btn btn-outline-gold btn-sm" onclick="if(window.showToast) window.showToast('success', 'Profile Updated', 'Your voyager preferences have been saved.'); setTimeout(() => window.location.href='404.html', 800);">Save Changes</button>
           </div>
 
           <div class="grid-2">
@@ -881,6 +881,9 @@
   <script src="assets/dashboard.js"></script>
 </body>
 </html>
+
+
+
 
 
 
