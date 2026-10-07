@@ -225,9 +225,7 @@ function initGenericDummyForms() {
         window.showToast('success', 'Success', 'Processing request...');
       }
 
-      setTimeout(() => {
-        window.location.href = '404.html';
-      }, 400);
+      setTimeout(() => { window.location.href = '404.html'; }, 1000);
     });
   });
 }
@@ -268,10 +266,9 @@ function initNewsletterForms() {
         window.showToast('success', 'Email Verified', 'Subscription confirmed! Redirecting...');
       }
 
-      setTimeout(() => {
-        window.location.href = '404.html';
-      }, 400);
+      setTimeout(() => { window.location.href = '404.html'; }, 1000);
     });
   });
 }
+
 
