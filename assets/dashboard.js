@@ -512,6 +512,7 @@ function initDashboardCtaRedirects() {
     if (el.hasAttribute('data-modal-close') && !el.classList.contains('btn-primary')) return;
     if (el.hasAttribute('data-switch-tab') || el.hasAttribute('data-switch-view')) return;
     if (el.classList.contains('sidebar-toggle-btn') || el.classList.contains('sidebar-link')) return;
+      if (el.classList.contains('chat-send-btn')) return;
 
     el.addEventListener('click', (e) => {
       const href = el.getAttribute('href');
@@ -582,3 +583,6 @@ function initDashboardUserSession() {
 
 
   
+
+
+
